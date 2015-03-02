@@ -20,6 +20,7 @@ type
     edFile: TEdit;
     GroupBox1: TGroupBox;
     Label1: TLabel;
+    lbUzivatel: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
@@ -27,12 +28,14 @@ type
     Label6: TLabel;
     Label7: TLabel;
     Label8: TLabel;
+    Label9: TLabel;
     MainMenu: TMainMenu;
     miImport: TMenuItem;
     miAbout: TMenuItem;
     miHelp: TMenuItem;
     miFile: TMenuItem;
     OpenDialog: TOpenDialog;
+    Panel1: TPanel;
     pImport: TPanel;
     ProgressBar1: TProgressBar;
     StatusBar1: TStatusBar;

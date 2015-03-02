@@ -33,7 +33,6 @@ type
     miHelp: TMenuItem;
     miFile: TMenuItem;
     OpenDialog: TOpenDialog;
-    Panel1: TPanel;
     pImport: TPanel;
     ProgressBar1: TProgressBar;
     StatusBar1: TStatusBar;
@@ -42,6 +41,7 @@ type
     procedure miAboutClick(Sender: TObject);
     procedure miFileClick(Sender: TObject);
     procedure miImportClick(Sender: TObject);
+    procedure pImportClick(Sender: TObject);
   private
     { private declarations }
   public
@@ -67,6 +67,11 @@ end;
 procedure TfrmMain.miImportClick(Sender: TObject);
 begin
   pImport.visible:=true;
+end;
+
+procedure TfrmMain.pImportClick(Sender: TObject);
+begin
+
 end;
 
 procedure TfrmMain.miAboutClick(Sender: TObject);
