@@ -1,0 +1,189 @@
+object frmMain: TfrmMain
+  Left = 339
+  Height = 370
+  Top = 178
+  Width = 563
+  Caption = 'Store4 - Utils'
+  ClientHeight = 351
+  ClientWidth = 563
+  Constraints.MaxHeight = 370
+  Constraints.MaxWidth = 560
+  Constraints.MinHeight = 370
+  Constraints.MinWidth = 560
+  Menu = MainMenu
+  Position = poDesktopCenter
+  LCLVersion = '1.2.6.0'
+  object StatusBar1: TStatusBar
+    Left = 0
+    Height = 20
+    Top = 331
+    Width = 563
+    Panels = <>
+  end
+  object pImport: TPanel
+    Left = 0
+    Height = 331
+    Top = 0
+    Width = 563
+    Align = alClient
+    BevelOuter = bvSpace
+    ClientHeight = 331
+    ClientWidth = 563
+    TabOrder = 1
+    Visible = False
+    OnClick = pImportClick
+    object Button1: TButton
+      Left = 482
+      Height = 25
+      Top = 0
+      Width = 75
+      Anchors = [akTop, akRight]
+      Caption = 'Zavřít'
+      OnClick = Button1Click
+      TabOrder = 0
+    end
+    object GroupBox1: TGroupBox
+      Left = 8
+      Height = 296
+      Top = 24
+      Width = 547
+      Caption = 'Import'
+      ClientHeight = 278
+      ClientWidth = 543
+      TabOrder = 1
+      object btFileOpen: TButton
+        Left = 8
+        Height = 25
+        Top = 27
+        Width = 75
+        Caption = 'Otevřít'
+        OnClick = btFileOpenClick
+        TabOrder = 0
+      end
+      object edFile: TEdit
+        Left = 88
+        Height = 21
+        Top = 31
+        Width = 448
+        TabOrder = 1
+      end
+      object Label1: TLabel
+        Left = 88
+        Height = 13
+        Top = 59
+        Width = 38
+        Caption = 'průběh:'
+        ParentColor = False
+      end
+      object ProgressBar1: TProgressBar
+        Left = 88
+        Height = 12
+        Top = 76
+        Width = 448
+        TabOrder = 2
+      end
+      object Label2: TLabel
+        Left = 17
+        Height = 13
+        Top = 112
+        Width = 66
+        Caption = 'celkem řádků:'
+        ParentColor = False
+      end
+      object Label3: TLabel
+        Left = 17
+        Height = 13
+        Top = 134
+        Width = 64
+        Caption = 'importováno:'
+        ParentColor = False
+      end
+      object Label4: TLabel
+        Left = 17
+        Height = 13
+        Top = 156
+        Width = 52
+        Caption = 'odmítnuto:'
+        ParentColor = False
+      end
+      object Label5: TLabel
+        Left = 88
+        Height = 13
+        Top = 112
+        Width = 64
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Label5'
+        ParentColor = False
+      end
+      object Label6: TLabel
+        Left = 88
+        Height = 13
+        Top = 134
+        Width = 64
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Label6'
+        ParentColor = False
+      end
+      object Label7: TLabel
+        Left = 88
+        Height = 13
+        Top = 156
+        Width = 64
+        Alignment = taRightJustify
+        AutoSize = False
+        Caption = 'Label7'
+        ParentColor = False
+      end
+      object Button2: TButton
+        Left = 8
+        Height = 25
+        Top = 63
+        Width = 75
+        Caption = 'Spustit import'
+        TabOrder = 3
+      end
+      object Label8: TLabel
+        Left = 10
+        Height = 13
+        Top = 7
+        Width = 61
+        Caption = 'Typ importu:'
+        ParentColor = False
+      end
+      object cbTypeImport: TComboBox
+        Left = 88
+        Height = 21
+        Top = 0
+        Width = 448
+        ItemHeight = 13
+        Items.Strings = (
+          'import NIKE - excel, založení nových karet produktů'
+        )
+        TabOrder = 4
+      end
+    end
+  end
+  object MainMenu: TMainMenu
+    left = 360
+    object miFile: TMenuItem
+      Caption = 'Soubor'
+      OnClick = miFileClick
+      object miImport: TMenuItem
+        Caption = 'Import'
+        OnClick = miImportClick
+      end
+    end
+    object miHelp: TMenuItem
+      Caption = 'Nápověda'
+      object miAbout: TMenuItem
+        Caption = 'O aplikaci'
+        OnClick = miAboutClick
+      end
+    end
+  end
+  object OpenDialog: TOpenDialog
+    left = 424
+  end
+end
