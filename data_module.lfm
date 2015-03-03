@@ -6,19 +6,16 @@ object DM: TDM
   VerticalOffset = 202
   Width = 230
   object OracleConnection: TOracleConnection
-    Connected = True
+    Connected = False
     LoginPrompt = False
-    DatabaseName = 'MANU4'
     KeepConnection = False
-    Password = 'jim4free'
     Transaction = SQLTransaction
-    UserName = 'STORE4'
     LogEvents = []
     left = 46
     top = 40
   end
   object SQLTransaction: TSQLTransaction
-    Active = True
+    Active = False
     Database = OracleConnection
     left = 152
     top = 39

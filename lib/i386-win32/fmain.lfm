@@ -136,12 +136,13 @@ object frmMain: TfrmMain
         Caption = 'Label7'
         ParentColor = False
       end
-      object Button2: TButton
+      object btExecute: TButton
         Left = 8
         Height = 25
         Top = 63
         Width = 75
         Caption = 'Spustit import'
+        OnClick = btExecuteClick
         TabOrder = 3
       end
       object Label8: TLabel
@@ -162,6 +163,13 @@ object frmMain: TfrmMain
           'import NIKE - excel, založení nových karet produktů'
         )
         TabOrder = 4
+      end
+      object StringGrid: TStringGrid
+        Left = 10
+        Height = 176
+        Top = 96
+        Width = 528
+        TabOrder = 5
       end
     end
   end

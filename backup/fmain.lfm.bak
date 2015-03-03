@@ -2,10 +2,10 @@ object frmMain: TfrmMain
   Left = 339
   Height = 370
   Top = 178
-  Width = 563
+  Width = 560
   Caption = 'Store4 - Utils'
   ClientHeight = 351
-  ClientWidth = 563
+  ClientWidth = 560
   Constraints.MaxHeight = 370
   Constraints.MaxWidth = 560
   Constraints.MinHeight = 370
@@ -17,23 +17,23 @@ object frmMain: TfrmMain
     Left = 0
     Height = 20
     Top = 331
-    Width = 563
+    Width = 560
     Panels = <>
   end
   object pImport: TPanel
     Left = 0
-    Height = 331
-    Top = 0
-    Width = 563
+    Height = 313
+    Top = 18
+    Width = 560
     Align = alClient
     BevelOuter = bvSpace
-    ClientHeight = 331
-    ClientWidth = 563
+    ClientHeight = 313
+    ClientWidth = 560
     TabOrder = 1
     Visible = False
     OnClick = pImportClick
     object Button1: TButton
-      Left = 482
+      Left = 479
       Height = 25
       Top = 0
       Width = 75
@@ -136,12 +136,13 @@ object frmMain: TfrmMain
         Caption = 'Label7'
         ParentColor = False
       end
-      object Button2: TButton
+      object btExecute: TButton
         Left = 8
         Height = 25
         Top = 63
         Width = 75
         Caption = 'Spustit import'
+        OnClick = btExecuteClick
         TabOrder = 3
       end
       object Label8: TLabel
@@ -163,6 +164,40 @@ object frmMain: TfrmMain
         )
         TabOrder = 4
       end
+      object StringGrid: TStringGrid
+        Left = 10
+        Height = 176
+        Top = 96
+        Width = 528
+        TabOrder = 5
+      end
+    end
+  end
+  object Panel1: TPanel
+    Left = 0
+    Height = 18
+    Top = 0
+    Width = 560
+    Align = alTop
+    BevelOuter = bvSpace
+    ClientHeight = 18
+    ClientWidth = 560
+    TabOrder = 2
+    object Label9: TLabel
+      Left = 16
+      Height = 13
+      Top = 4
+      Width = 93
+      Caption = 'přihlášený uživatel:'
+      ParentColor = False
+    end
+    object lbUzivatel: TLabel
+      Left = 123
+      Height = 13
+      Top = 4
+      Width = 46
+      Caption = 'lbUzivatel'
+      ParentColor = False
     end
   end
   object MainMenu: TMainMenu
