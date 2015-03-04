@@ -36,7 +36,7 @@
         <PackageName Value="LCL"/>
       </Item2>
     </RequiredPackages>
-    <Units Count="7">
+    <Units Count="8">
       <Unit0>
         <Filename Value="store4.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -84,6 +84,11 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="uConsts"/>
       </Unit6>
+      <Unit7>
+        <Filename Value="cestina.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="cestina"/>
+      </Unit7>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

@@ -13,18 +13,21 @@ type
   { TfrmMain }
 
   TfrmMain = class(TForm)
-    Button1: TButton;
     btFileOpen: TButton;
     btExecute: TButton;
+    btStop: TButton;
     cbTypeImport: TComboBox;
     edFile: TEdit;
     GroupBox1: TGroupBox;
     Label1: TLabel;
+    lbY: TLabel;
+    Label5: TLabel;
+    lbX: TLabel;
     lbUzivatel: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
-    Label5: TLabel;
+    lbCount: TLabel;
     Label6: TLabel;
     Label7: TLabel;
     Label8: TLabel;
@@ -42,7 +45,9 @@ type
     StringGrid: TStringGrid;
     procedure btExecuteClick(Sender: TObject);
     procedure btFileOpenClick(Sender: TObject);
+    procedure btStopClick(Sender: TObject);
     procedure Button1Click(Sender: TObject);
+    procedure GroupBox1Click(Sender: TObject);
     procedure miAboutClick(Sender: TObject);
     procedure miFileClick(Sender: TObject);
     procedure miImportClick(Sender: TObject);
@@ -58,11 +63,13 @@ var
 
 implementation
 
-uses dabout, ComObj;
+uses dabout, ComObj, cestina;
 
 {$R *.lfm}
 
 { TfrmMain }
+
+var stop: boolean;
 
 procedure TfrmMain.miFileClick(Sender: TObject);
 begin
@@ -91,133 +98,65 @@ begin
   pImport.Visible:=false;
 end;
 
+procedure TfrmMain.GroupBox1Click(Sender: TObject);
+begin
+
+end;
+
 procedure TfrmMain.btFileOpenClick(Sender: TObject);
 begin
   if OpenDialog.execute then
       edFile.Text:=OpenDialog.Filename;
 end;
 
-function Xls_To_StringGrid(AGrid: TStringGrid; AXLSFile: string): Boolean;
-const
-  xlCellTypeLastCell = $0000000B;
-var
-  XLApp, Sheet: OLEVariant;
-  RangeMatrix: Variant;
-  x, y, k, r: Integer;
+procedure TfrmMain.btStopClick(Sender: TObject);
 begin
-  Result := False;
-  // Create Excel-OLE Object
-  XLApp := CreateOleObject('Excel.Application');
-  try
-    // Hide Excel
-    XLApp.Visible := False;
-
-    // Open the Workbook
-    XLApp.Workbooks.Open(AXLSFile);
-
-    // Sheet := XLApp.Workbooks[1].WorkSheets[1];
-    Sheet := XLApp.Workbooks[ExtractFileName(AXLSFile)].WorkSheets[1];
-
-    // In order to know the dimension of the WorkSheet, i.e the number of rows
-    // and the number of columns, we activate the last non-empty cell of it
-
-    Sheet.Cells.SpecialCells(xlCellTypeLastCell, EmptyParam).Activate;
-    // Get the value of the last row
-    x := XLApp.ActiveCell.Row;
-    // Get the value of the last column
-    y := XLApp.ActiveCell.Column;
-
-    // Set Stringgrid's row &col dimensions.
-
-    AGrid.RowCount := x;
-    AGrid.ColCount := y;
-
-    // Assign the Variant associated with the WorkSheet to the Delphi Variant
-
-    RangeMatrix := XLApp.Range['A1', XLApp.Cells.Item[X, Y]].Value;
-    //  Define the loop for filling in the TStringGrid
-    k := 1;
-    repeat
-      for r := 1 to y do
-        AGrid.Cells[(r - 1), (k - 1)] := RangeMatrix[K, R];
-      Inc(k, 1);
-      AGrid.RowCount := k + 1;
-    until k > x;
-    // Unassign the Delphi Variant Matrix
-    RangeMatrix := Unassigned;
-
-  finally
-    // Quit Excel
-    if not VarIsEmpty(XLApp) then
-    begin
-      // XLApp.DisplayAlerts := False;
-      XLApp.Quit;
-      XLAPP := Unassigned;
-      Sheet := Unassigned;
-      Result := True;
-    end;
-  end;
+  stop := true;
 end;
 
 procedure TfrmMain.btExecuteClick(Sender: TObject);
-var
-  Cols: integer;
-  Rows: integer;
-  IntCellValue: integer;
-  Excel, XLSheet: Variant;
-  failure: Integer;
-
+Var XLApp: OLEVariant;
+      x,y: LongInt;
+      path: variant;
+      xx,yy: LongInt;
 begin
-  failure:=0;
-  try
-    Excel:=CreateOleObject('Excel.Application');
-  except
-    failure:=1;
-  end;
-  if failure = 0 then
-  begin
-    Excel.Visible:=False;
-    Excel.WorkBooks.Open(edFile.Text);
-    XLSheet := Excel.Worksheets[1];
-    Cols := XLSheet.UsedRange.Columns.Count;
-    Rows := XLSheet.UsedRange.Rows.Count;
-
-    // Value of the 1st Cell
-    IntCellValue:=Excel.Cells[1, 1].Value;
-    // Iterate Cals/Rows to read the data section in your worksheet
-    // and you can write it in Paradox using the BDE by iterating all cells
-    // somthing like this pseudo code:
-
-      try
-        //Query := TSQLQuery.Create(nil)
-        //Query.Databasename := PdxDBName; // must be configured in the BDE
-        while Rows > 0 do
-        begin
-          while Cols > 0 do
-          begin
-            IntCellValue:=Excel.Cells[Cols,Rows].Value;
-            //Query.SQL.text := // SQLStmt including the IntCellValue
-            //ExecSQL;
-            ShowMessage(AnsiString(IntCellValue));
-            dec(Cols);
-          end;
-          Cols := XLSheet.UsedRange.Columns.Count;
-        Dec(Rows);
-        end;
-      finally
-        Query.Free;
-      end;
-
-    Excel.Workbooks.Close;
-    Excel.Quit;
-    Excel:=Unassigned;
+ XLApp := CreateOleObject('Excel.Application'); // comobj
+ try
+   btExecute.Enabled := false;
+   btFileOpen.Enabled := false;
+   XLApp.Visible := False;         // Hide Excel
+   XLApp.DisplayAlerts := False;
+   path := edFile.Text;
+   XLApp.Workbooks.Open(Path);     // Open the Workbook
+   xx := XLApp.WorkBooks[1].WorkSheets[1].UsedRange.Rows.Count;
+   yy := XLApp.WorkBooks[1].WorkSheets[1].UsedRange.Columns.Count;
+   StringGrid.ColCount := yy;
+   StringGrid.RowCount := xx;
+   lbCount.Caption := IntToStr(xx);
+   ProgressBar1.Position := 0;
+   ProgressBar1.Min := 0;
+   ProgressBar1.Max := xx;
+   lbX.caption := '0';
+   lbY.caption := '0';
+   for x := 1 to xx do
+   begin
+     ProgressBar1.StepIt;
+     for y := 1 to yy do
+     begin
+       lbX.caption := IntToStr(x);
+       lbY.caption := IntToStr(y);
+       StringGrid.Cells[y-1,x-1] := Win2Utf(XLApp.Cells[x,y].Value);
+       if stop then exit;
+     end;
+     if stop then exit;
+   end;
+   btExecute.Enabled := true;
+   btFileOpen.Enabled := true;
+ finally
+   XLApp.Quit;
+   XLAPP := Unassigned;
   end;
 end;
-
-//begin
-//  if Xls_To_StringGrid(StringGrid, edFile.Text) then
-//    ShowMessage('Table has been imported!');
-//end;
 
 end.
 
