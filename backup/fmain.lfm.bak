@@ -1,12 +1,12 @@
 object frmMain: TfrmMain
   Left = 339
-  Height = 370
+  Height = 200
   Top = 178
   Width = 560
   Caption = 'Store4 - Utils'
-  ClientHeight = 351
+  ClientHeight = 181
   ClientWidth = 560
-  Constraints.MinHeight = 370
+  Constraints.MinHeight = 200
   Constraints.MinWidth = 560
   Menu = MainMenu
   Position = poDesktopCenter
@@ -14,29 +14,29 @@ object frmMain: TfrmMain
   object StatusBar1: TStatusBar
     Left = 0
     Height = 20
-    Top = 331
+    Top = 161
     Width = 560
     Panels = <>
   end
   object pImport: TPanel
     Left = 0
-    Height = 313
+    Height = 143
     Top = 18
     Width = 560
     Align = alClient
     BevelOuter = bvSpace
-    ClientHeight = 313
+    ClientHeight = 143
     ClientWidth = 560
     TabOrder = 1
     OnClick = pImportClick
     object GroupBox1: TGroupBox
       Left = 1
-      Height = 311
+      Height = 141
       Top = 1
       Width = 558
       Align = alClient
       Caption = 'Import'
-      ClientHeight = 293
+      ClientHeight = 123
       ClientWidth = 554
       TabOrder = 0
       OnClick = GroupBox1Click
@@ -115,7 +115,7 @@ object frmMain: TfrmMain
         Width = 64
         Alignment = taRightJustify
         AutoSize = False
-        Caption = 'Label6'
+        Caption = '0'
         ParentColor = False
       end
       object Label7: TLabel
@@ -125,7 +125,7 @@ object frmMain: TfrmMain
         Width = 64
         Alignment = taRightJustify
         AutoSize = False
-        Caption = 'Label7'
+        Caption = '0'
         ParentColor = False
       end
       object btExecute: TButton
@@ -157,50 +157,14 @@ object frmMain: TfrmMain
         )
         TabOrder = 4
       end
-      object StringGrid: TStringGrid
-        Left = 10
-        Height = 168
-        Top = 120
-        Width = 528
-        Anchors = [akTop, akLeft, akRight, akBottom]
-        ColCount = 1
-        FixedCols = 0
-        Options = [goFixedVertLine, goFixedHorzLine, goVertLine, goHorzLine, goRangeSelect, goColSizing, goSmoothScroll]
-        RowCount = 1
-        TabOrder = 5
-      end
       object lbX: TLabel
         Left = 135
         Height = 13
         Top = 59
-        Width = 6
+        Width = 65
+        AutoSize = False
         Caption = '0'
         ParentColor = False
-      end
-      object Label5: TLabel
-        Left = 160
-        Height = 13
-        Top = 59
-        Width = 4
-        Caption = '-'
-        ParentColor = False
-      end
-      object lbY: TLabel
-        Left = 176
-        Height = 13
-        Top = 59
-        Width = 6
-        Caption = '0'
-        ParentColor = False
-      end
-      object btStop: TButton
-        Left = 461
-        Height = 25
-        Top = 88
-        Width = 75
-        Caption = 'Zastavit'
-        OnClick = btStopClick
-        TabOrder = 6
       end
     end
   end
@@ -255,5 +219,19 @@ object frmMain: TfrmMain
   end
   object OpenDialog: TOpenDialog
     left = 424
+  end
+  object SQLQuery1: TSQLQuery
+    FieldDefs = <>
+    Database = DM.OracleConnection
+    Transaction = DM.SQLTransaction
+    InsertSQL.Strings = (
+      'insert into store4_import_produkty_nike'
+      '(ARTICLE, MODEL_NUMBER, MODEL_NAME, COLOUR, NET_PRICE, REC_REC_PRICE, LAUNCH_WEEK, SIZE_DESCR, EAN_NUMBER, BRAND, SIZE_INDEX, DIVISION_ID, DIVISION_DESCR_L, SPORTS_CODE_ID, SPORTS_CODE_DESCR_L, GEND, GENDER_NAME, USERCODE, ARTICLE_DESCR_L, COLOUR_COMB_DESCR_L, PRODUCT_GROUP_ID, PRODUCT_GROUP_NAME, PRODUCT_TYPE_ID, PRODUCT_TYPE_NAME, GENDER, AGE, MATERIAL)'
+      'values'
+      '(:ARTICLE, :MODEL_NUMBER, :MODEL_NAME, :COLOUR, :NET_PRICE, :REC_REC_PRICE, :LAUNCH_WEEK, :SIZE_DESCR, :EAN_NUMBER, :BRAND, :SIZE_INDEX, :DIVISION_ID, :DIVISION_DESCR_L, :SPORTS_CODE_ID, :SPORTS_CODE_DESCR_L, :GEND, :GENDER_NAME, :USERCODE, :ARTICLE_DESCR_L, :COLOUR_COMB_DESCR_L, :PRODUCT_GROUP_ID, :PRODUCT_GROUP_NAME, :PRODUCT_TYPE_ID, :PRODUCT_TYPE_NAME, :GENDER, :AGE, :MATERIAL)'
+    )
+    Params = <>
+    left = 485
+    top = 2
   end
 end
