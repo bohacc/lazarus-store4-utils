@@ -241,15 +241,15 @@ begin
   NewParam.DataType := ftString;
   NewParam.ParamType := ptOutput;
   SQLQuery1.Params.AddParam(NewParam);}
-  ShowMessage('Krok 0');
+  //ShowMessage('Krok 0');
   //SQLQuery1.Prepare;
-  ShowMessage('Krok 1');
+  //ShowMessage('Krok 1');
   DM.SQLTransaction.active := false;
   DM.SQLTransaction.StartTransaction;
   SQLQuery1.ExecSQL;
-  ShowMessage('Krok 2');
+  //ShowMessage('Krok 2');
   DM.SQLTransaction.Commit;
-  ShowMessage('Krok 3');
+  //ShowMessage('Krok 3');
   //lbCreatedCount.caption := SQLQuery1.Params.ParamByName('text').AsString;
 
   SQLQuery1.Close;

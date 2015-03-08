@@ -269,7 +269,8 @@ object frmMain: TfrmMain
     Params = <    
       item
         DataType = ftUnknown
-        ParamType = ptInputOutput
+        Name = 'text'
+        ParamType = ptInput
       end>
     left = 485
     top = 2
