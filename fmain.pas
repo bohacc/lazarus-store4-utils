@@ -15,17 +15,20 @@ type
   TfrmMain = class(TForm)
     btFileOpen: TButton;
     btExecute: TButton;
+    btCreateProducts: TButton;
     cbTypeImport: TComboBox;
     edFile: TEdit;
     GroupBox1: TGroupBox;
     Label1: TLabel;
+    Label5: TLabel;
+    lbCreatedCount: TLabel;
     lbX: TLabel;
     lbUzivatel: TLabel;
     Label2: TLabel;
     Label3: TLabel;
     Label4: TLabel;
     lbCount: TLabel;
-    Label6: TLabel;
+    lbImportCount: TLabel;
     Label7: TLabel;
     Label8: TLabel;
     Label9: TLabel;
@@ -38,8 +41,10 @@ type
     Panel1: TPanel;
     pImport: TPanel;
     ProgressBar1: TProgressBar;
+    ProgressBar2: TProgressBar;
     SQLQuery1: TSQLQuery;
     StatusBar1: TStatusBar;
+    procedure btCreateProductsClick(Sender: TObject);
     procedure btExecuteClick(Sender: TObject);
     procedure btFileOpenClick(Sender: TObject);
     procedure btStopClick(Sender: TObject);
@@ -115,10 +120,11 @@ procedure TfrmMain.btExecuteClick(Sender: TObject);
 Var XLApp: OLEVariant;
       x,y: LongInt;
       path: variant;
-      xx,yy: LongInt;
+      xx,yy,cnt: LongInt;
 begin
  XLApp := CreateOleObject('Excel.Application'); // comobj
  try
+   cnt := 0;
    btExecute.Enabled := false;
    btFileOpen.Enabled := false;
    XLApp.Visible := False;         // Hide Excel
@@ -132,11 +138,11 @@ begin
    ProgressBar1.Min := 0;
    ProgressBar1.Max := xx;
    lbX.caption := '0';
-   SQLQuery1.SQL.Text := 'DELETE store4_import_produkty_nike';
+   SQLQuery1.SQL.Text := 'DELETE import_produkty_nike';
    SQLQuery1.ExecSQL;
    DM.SQLTransaction.Commit;
    SQLQuery1.SQL.Text :=
-     'insert into store4_import_produkty_nike ' +
+     'insert into import_produkty_nike ' +
      ' (ARTICLE, MODEL_NUMBER, MODEL_NAME, COLOUR, NET_PRICE, REC_REC_PRICE, LAUNCH_WEEK, SIZE_DESCR, EAN_NUMBER, BRAND, SIZE_INDEX, DIVISION_ID, DIVISION_DESCR_L, SPORTS_CODE_ID, SPORTS_CODE_DESCR_L, GEND, GENDER_NAME, USERCODE, ARTICLE_DESCR_L, COLOUR_COMB_DESCR_L, PRODUCT_GROUP_ID, PRODUCT_GROUP_NAME, PRODUCT_TYPE_ID, PRODUCT_TYPE_NAME, GENDER, AGE, MATERIAL) ' +
      'values ' +
      ' (:ARTICLE, :MODEL_NUMBER, :MODEL_NAME, :COLOUR, :NET_PRICE, :REC_REC_PRICE, :LAUNCH_WEEK, :SIZE_DESCR, :EAN_NUMBER, :BRAND, :SIZE_INDEX, :DIVISION_ID, :DIVISION_DESCR_L, :SPORTS_CODE_ID, :SPORTS_CODE_DESCR_L, :GEND, :GENDER_NAME, :USERCODE, :ARTICLE_DESCR_L, :COLOUR_COMB_DESCR_L, :PRODUCT_GROUP_ID, :PRODUCT_GROUP_NAME, :PRODUCT_TYPE_ID, :PRODUCT_TYPE_NAME, :GENDER, :AGE, :MATERIAL)';
@@ -201,13 +207,63 @@ begin
      // POST
      SQLQuery1.ExecSQL;
      DM.SQLTransaction.Commit;
+     cnt := cnt + 1;
+     lbImportCount.caption := IntToStr(cnt);
    end;
+   ShowMessage('Import skončil');
  finally
    XLApp.Quit;
    XLAPP := Unassigned;
    btExecute.Enabled := true;
    btFileOpen.Enabled := true;
   end;
+end;
+
+procedure TfrmMain.btCreateProductsClick(Sender: TObject);
+var
+  Sqlquery : TSqlquery;
+  NewParam : TParam;
+begin
+ try
+  ProgressBar2.style := pbstMarquee;
+  SQLQuery1.Close;
+  SQLQuery1.SQL.Text := 'delete sessionid_temp where kod = ''IMPORT_NIKE'' and sessionid = 999999';
+  DM.SQLTransaction.active := false;
+  DM.SQLTransaction.StartTransaction;
+  SQLQuery1.ExecSQL;
+  DM.SQLTransaction.Commit;
+
+  SQLQuery1.Close;
+  SQLQuery1.SQL.Text := 'begin import_produktu_nike; end;';
+  {SQLQuery1.Params.Clear;
+  NewParam := TParam.Create(Sqlquery.Params);
+  NewParam.Name := 'text';
+  NewParam.DataType := ftString;
+  NewParam.ParamType := ptOutput;
+  SQLQuery1.Params.AddParam(NewParam);}
+  ShowMessage('Krok 0');
+  //SQLQuery1.Prepare;
+  ShowMessage('Krok 1');
+  DM.SQLTransaction.active := false;
+  DM.SQLTransaction.StartTransaction;
+  SQLQuery1.ExecSQL;
+  ShowMessage('Krok 2');
+  DM.SQLTransaction.Commit;
+  ShowMessage('Krok 3');
+  //lbCreatedCount.caption := SQLQuery1.Params.ParamByName('text').AsString;
+
+  SQLQuery1.Close;
+  SQLQuery1.SQL.Text := 'select s1 from sessionid_temp where kod = ''IMPORT_NIKE'' and sessionid = 999999';
+  SQLQuery1.Open;
+  lbCreatedCount.caption := SQLQuery1.FieldByName('S1').AsString;
+  SQLQuery1.Close;
+
+  ProgressBar2.style := pbstNormal;
+  ProgressBar2.position := 100;
+  ShowMessage('Založení produktů proběhlo');
+ finally
+   ProgressBar2.style := pbstNormal;
+ end;
 end;
 
 end.
