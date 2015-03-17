@@ -144,14 +144,14 @@ object frmMain: TfrmMain
         ParentColor = False
       end
       object cbTypeImport: TComboBox
-        Left = 88
+        Left = 89
         Height = 21
         Top = 0
         Width = 520
         Anchors = [akTop, akLeft, akRight]
         ItemHeight = 13
         Items.Strings = (
-          'import NIKE - excel, založení nových karet produktů'
+          'import ADIDAS - excel, založení nových karet produktů'
         )
         TabOrder = 4
       end

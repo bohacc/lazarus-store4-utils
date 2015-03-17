@@ -138,11 +138,11 @@ begin
    ProgressBar1.Min := 0;
    ProgressBar1.Max := xx;
    lbX.caption := '0';
-   SQLQuery1.SQL.Text := 'DELETE import_produkty_nike';
+   SQLQuery1.SQL.Text := 'DELETE import_produkty_adidas';
    SQLQuery1.ExecSQL;
    DM.SQLTransaction.Commit;
    SQLQuery1.SQL.Text :=
-     'insert into import_produkty_nike ' +
+     'insert into import_produkty_adidas ' +
      ' (ARTICLE, MODEL_NUMBER, MODEL_NAME, COLOUR, NET_PRICE, REC_REC_PRICE, LAUNCH_WEEK, SIZE_DESCR, EAN_NUMBER, BRAND, SIZE_INDEX, DIVISION_ID, DIVISION_DESCR_L, SPORTS_CODE_ID, SPORTS_CODE_DESCR_L, GEND, GENDER_NAME, USERCODE, ARTICLE_DESCR_L, COLOUR_COMB_DESCR_L, PRODUCT_GROUP_ID, PRODUCT_GROUP_NAME, PRODUCT_TYPE_ID, PRODUCT_TYPE_NAME, GENDER, AGE, MATERIAL) ' +
      'values ' +
      ' (:ARTICLE, :MODEL_NUMBER, :MODEL_NAME, :COLOUR, :NET_PRICE, :REC_REC_PRICE, :LAUNCH_WEEK, :SIZE_DESCR, :EAN_NUMBER, :BRAND, :SIZE_INDEX, :DIVISION_ID, :DIVISION_DESCR_L, :SPORTS_CODE_ID, :SPORTS_CODE_DESCR_L, :GEND, :GENDER_NAME, :USERCODE, :ARTICLE_DESCR_L, :COLOUR_COMB_DESCR_L, :PRODUCT_GROUP_ID, :PRODUCT_GROUP_NAME, :PRODUCT_TYPE_ID, :PRODUCT_TYPE_NAME, :GENDER, :AGE, :MATERIAL)';
@@ -227,21 +227,21 @@ begin
  try
   ProgressBar2.style := pbstMarquee;
   SQLQuery1.Close;
-  SQLQuery1.SQL.Text := 'delete sessionid_temp where kod = ''IMPORT_NIKE'' and sessionid = 999999';
+  SQLQuery1.SQL.Text := 'delete sessionid_temp where kod = ''IMPORT_ADIDAS'' and sessionid = 999999';
   DM.SQLTransaction.active := false;
   DM.SQLTransaction.StartTransaction;
   SQLQuery1.ExecSQL;
   DM.SQLTransaction.Commit;
 
   SQLQuery1.Close;
-  SQLQuery1.SQL.Text := 'begin import_produktu_nike; end;';
+  SQLQuery1.SQL.Text := 'begin import_produktu_adidas; end;';
   {SQLQuery1.Params.Clear;
   NewParam := TParam.Create(Sqlquery.Params);
   NewParam.Name := 'text';
   NewParam.DataType := ftString;
   NewParam.ParamType := ptOutput;
   SQLQuery1.Params.AddParam(NewParam);}
-  ShowMessage('Krok 0');
+  //ShowMessage('Krok 0');
   //SQLQuery1.Prepare;
   //ShowMessage('Krok 1');
   DM.SQLTransaction.active := false;
@@ -253,7 +253,7 @@ begin
   //lbCreatedCount.caption := SQLQuery1.Params.ParamByName('text').AsString;
 
   SQLQuery1.Close;
-  SQLQuery1.SQL.Text := 'select s1 from sessionid_temp where kod = ''IMPORT_NIKE'' and sessionid = 999999';
+  SQLQuery1.SQL.Text := 'select s1 from sessionid_temp where kod = ''IMPORT_ADIDAS'' and sessionid = 999999';
   SQLQuery1.Open;
   lbCreatedCount.caption := SQLQuery1.FieldByName('S1').AsString;
   SQLQuery1.Close;
