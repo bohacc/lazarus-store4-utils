@@ -152,6 +152,8 @@ object frmMain: TfrmMain
         ItemHeight = 13
         Items.Strings = (
           'import ADIDAS - excel, založení nových karet produktů'
+          'import Reebok - excel, založení nových karet produktů'
+          ''
         )
         TabOrder = 4
       end

@@ -116,7 +116,7 @@ begin
   stop := true;
 end;
 
-procedure TfrmMain.btExecuteClick(Sender: TObject);
+procedure importReebok;
 Var XLApp: OLEVariant;
       x,y: LongInt;
       path: variant;
@@ -125,97 +125,212 @@ begin
  XLApp := CreateOleObject('Excel.Application'); // comobj
  try
    cnt := 0;
-   btExecute.Enabled := false;
-   btFileOpen.Enabled := false;
+   frmMain.btExecute.Enabled := false;
+   frmMain.btFileOpen.Enabled := false;
    XLApp.Visible := False;         // Hide Excel
    XLApp.DisplayAlerts := False;
-   path := edFile.Text;
+   path := frmMain.edFile.Text;
    XLApp.Workbooks.Open(Path);     // Open the Workbook
    xx := XLApp.WorkBooks[1].WorkSheets[1].UsedRange.Rows.Count;
    yy := XLApp.WorkBooks[1].WorkSheets[1].UsedRange.Columns.Count;
-   lbCount.Caption := IntToStr(xx);
-   ProgressBar1.Position := 0;
-   ProgressBar1.Min := 0;
-   ProgressBar1.Max := xx;
-   lbX.caption := '0';
-   SQLQuery1.SQL.Text := 'DELETE import_produkty_adidas';
-   SQLQuery1.ExecSQL;
+   frmMain.lbCount.Caption := IntToStr(xx);
+   frmMain.ProgressBar1.Position := 0;
+   frmMain.ProgressBar1.Min := 0;
+   frmMain.ProgressBar1.Max := xx;
+   frmMain.lbX.caption := '0';
+   frmMain.SQLQuery1.SQL.Text := 'DELETE import_produkty_reebok';
+   frmMain.SQLQuery1.ExecSQL;
    DM.SQLTransaction.Commit;
-   SQLQuery1.SQL.Text :=
+   frmMain.SQLQuery1.SQL.Text :=
+     'insert into import_produkty_reebok ' +
+     ' (ARTICLE, MODEL_NUMBER, MODEL_NAME, COLOUR, NET_PRICE, REC_REC_PRICE, LAUNCH_WEEK, SIZE_DESCR, EAN_NUMBER, BRAND, SIZE_INDEX, DIVISION_ID, DIVISION_DESCR_L, SPORTS_CODE_ID, SPORTS_CODE_DESCR_L, USERCODE, ARTICLE_DESCR_L, COLOUR_COMB_DESCR_L, PRODUCT_GROUP_ID, PRODUCT_GROUP_NAME, PRODUCT_TYPE_ID, PRODUCT_TYPE_NAME, GENDER, AGE, MATERIAL) ' +
+     'values ' +
+     ' (:ARTICLE, :MODEL_NUMBER, :MODEL_NAME, :COLOUR, :NET_PRICE, :REC_REC_PRICE, :LAUNCH_WEEK, :SIZE_DESCR, :EAN_NUMBER, :BRAND, :SIZE_INDEX, :DIVISION_ID, :DIVISION_DESCR_L, :SPORTS_CODE_ID, :SPORTS_CODE_DESCR_L, :USERCODE, :ARTICLE_DESCR_L, :COLOUR_COMB_DESCR_L, :PRODUCT_GROUP_ID, :PRODUCT_GROUP_NAME, :PRODUCT_TYPE_ID, :PRODUCT_TYPE_NAME, :GENDER, :AGE, :MATERIAL)';
+   for x := 2 to xx do
+   begin
+     frmMain.ProgressBar1.StepIt;
+     frmMain.lbX.caption := IntToStr(x);
+     // ARTICLE
+     frmMain.SQLQuery1.ParamByName('ARTICLE').AsString := Win2Utf(XLApp.Cells[x,1].Value);
+     // MODEL_NUMBER
+     frmMain.SQLQuery1.ParamByName('MODEL_NUMBER').AsString := Win2Utf(XLApp.Cells[x,2].Value);
+     // MODEL_NAME
+     frmMain.SQLQuery1.ParamByName('MODEL_NAME').AsString := Win2Utf(XLApp.Cells[x,3].Value);
+     // COLOUR
+     frmMain.SQLQuery1.ParamByName('COLOUR').AsString := Win2Utf(XLApp.Cells[x,4].Value);
+     // NET_PRICE
+     frmMain.SQLQuery1.ParamByName('NET_PRICE').AsString := Win2Utf(XLApp.Cells[x,5].Value);
+     // REC_REC_PRICE
+     frmMain.SQLQuery1.ParamByName('REC_REC_PRICE').AsString := Win2Utf(XLApp.Cells[x,6].Value);
+     // LAUNCH_WEEK
+     frmMain.SQLQuery1.ParamByName('LAUNCH_WEEK').AsString := Win2Utf(XLApp.Cells[x,7].Value);
+     // SIZE_DESCR
+     frmMain.SQLQuery1.ParamByName('SIZE_DESCR').AsString := Win2Utf(XLApp.Cells[x,8].Value);
+     // EAN_NUMBER
+     frmMain.SQLQuery1.ParamByName('EAN_NUMBER').AsString := Win2Utf(XLApp.Cells[x,9].Value);
+     // BRAND
+     frmMain.SQLQuery1.ParamByName('BRAND').AsString := Win2Utf(XLApp.Cells[x,10].Value);
+     // SIZE_INDEX
+     frmMain.SQLQuery1.ParamByName('SIZE_INDEX').AsString := Win2Utf(XLApp.Cells[x,11].Value);
+     // DIVISION_ID
+     frmMain.SQLQuery1.ParamByName('DIVISION_ID').AsString := Win2Utf(XLApp.Cells[x,12].Value);
+     // DIVISION_DESCR_L
+     frmMain.SQLQuery1.ParamByName('DIVISION_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,13].Value);
+     // SPORTS_CODE_ID
+     frmMain.SQLQuery1.ParamByName('SPORTS_CODE_ID').AsString := Win2Utf(XLApp.Cells[x,14].Value);
+     // SPORTS_CODE_DESCR_L
+     frmMain.SQLQuery1.ParamByName('SPORTS_CODE_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,15].Value);
+     // GEND
+     frmMain.SQLQuery1.ParamByName('GEND').AsString := Win2Utf(XLApp.Cells[x,16].Value);
+     // GENDER_NAME
+     frmMain.SQLQuery1.ParamByName('GENDER_NAME').AsString := Win2Utf(XLApp.Cells[x,17].Value);
+     // USERCODE
+     frmMain.SQLQuery1.ParamByName('USERCODE').AsString := Win2Utf(XLApp.Cells[x,18].Value);
+     // ARTICLE_DESCR_L
+     frmMain.SQLQuery1.ParamByName('ARTICLE_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,19].Value);
+     // COLOUR_COMB_DESCR_L
+     frmMain.SQLQuery1.ParamByName('COLOUR_COMB_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,20].Value);
+     // PRODUCT_GROUP_ID
+     frmMain.SQLQuery1.ParamByName('PRODUCT_GROUP_ID').AsString := Win2Utf(XLApp.Cells[x,21].Value);
+     // PRODUCT_GROUP_NAME
+     frmMain.SQLQuery1.ParamByName('PRODUCT_GROUP_NAME').AsString := Win2Utf(XLApp.Cells[x,22].Value);
+     //PRODUCT_TYPE_ID
+     frmMain.SQLQuery1.ParamByName('PRODUCT_TYPE_ID').AsString := Win2Utf(XLApp.Cells[x,23].Value);
+     // PRODUCT_TYPE_NAME
+     frmMain.SQLQuery1.ParamByName('PRODUCT_TYPE_NAME').AsString := Win2Utf(XLApp.Cells[x,24].Value);
+     // GENDER
+     frmMain.SQLQuery1.ParamByName('GENDER').AsString := Win2Utf(XLApp.Cells[x,25].Value);
+     // AGE
+     frmMain.SQLQuery1.ParamByName('AGE').AsString := Win2Utf(XLApp.Cells[x,26].Value);
+     // MATERIAL
+     frmMain.SQLQuery1.ParamByName('MATERIAL').AsString := Win2Utf(XLApp.Cells[x,27].Value);
+     // POST
+     frmMain.SQLQuery1.ExecSQL;
+     DM.SQLTransaction.Commit;
+     cnt := cnt + 1;
+     frmMain.lbImportCount.caption := IntToStr(cnt);
+   end;
+   ShowMessage('Import skončil');
+ finally
+   XLApp.Quit;
+   XLAPP := Unassigned;
+   frmMain.btExecute.Enabled := true;
+   frmMain.btFileOpen.Enabled := true;
+  end;
+end;
+
+procedure importAdidas;
+Var XLApp: OLEVariant;
+      x,y: LongInt;
+      path: variant;
+      xx,yy,cnt: LongInt;
+begin
+ XLApp := CreateOleObject('Excel.Application'); // comobj
+ try
+   cnt := 0;
+   frmMain.btExecute.Enabled := false;
+   frmMain.btFileOpen.Enabled := false;
+   XLApp.Visible := False;         // Hide Excel
+   XLApp.DisplayAlerts := False;
+   path := frmMain.edFile.Text;
+   XLApp.Workbooks.Open(Path);     // Open the Workbook
+   xx := XLApp.WorkBooks[1].WorkSheets[1].UsedRange.Rows.Count;
+   yy := XLApp.WorkBooks[1].WorkSheets[1].UsedRange.Columns.Count;
+   frmMain.lbCount.Caption := IntToStr(xx);
+   frmMain.ProgressBar1.Position := 0;
+   frmMain.ProgressBar1.Min := 0;
+   frmMain.ProgressBar1.Max := xx;
+   frmMain.lbX.caption := '0';
+   frmMain.SQLQuery1.SQL.Text := 'DELETE import_produkty_adidas';
+   frmMain.SQLQuery1.ExecSQL;
+   DM.SQLTransaction.Commit;
+   frmMain.SQLQuery1.SQL.Text :=
      'insert into import_produkty_adidas ' +
      ' (ARTICLE, MODEL_NUMBER, MODEL_NAME, COLOUR, NET_PRICE, REC_REC_PRICE, LAUNCH_WEEK, SIZE_DESCR, EAN_NUMBER, BRAND, SIZE_INDEX, DIVISION_ID, DIVISION_DESCR_L, SPORTS_CODE_ID, SPORTS_CODE_DESCR_L, GEND, GENDER_NAME, USERCODE, ARTICLE_DESCR_L, COLOUR_COMB_DESCR_L, PRODUCT_GROUP_ID, PRODUCT_GROUP_NAME, PRODUCT_TYPE_ID, PRODUCT_TYPE_NAME, GENDER, AGE, MATERIAL) ' +
      'values ' +
      ' (:ARTICLE, :MODEL_NUMBER, :MODEL_NAME, :COLOUR, :NET_PRICE, :REC_REC_PRICE, :LAUNCH_WEEK, :SIZE_DESCR, :EAN_NUMBER, :BRAND, :SIZE_INDEX, :DIVISION_ID, :DIVISION_DESCR_L, :SPORTS_CODE_ID, :SPORTS_CODE_DESCR_L, :GEND, :GENDER_NAME, :USERCODE, :ARTICLE_DESCR_L, :COLOUR_COMB_DESCR_L, :PRODUCT_GROUP_ID, :PRODUCT_GROUP_NAME, :PRODUCT_TYPE_ID, :PRODUCT_TYPE_NAME, :GENDER, :AGE, :MATERIAL)';
    for x := 2 to xx do
    begin
-     ProgressBar1.StepIt;
-     lbX.caption := IntToStr(x);
+     frmMain.ProgressBar1.StepIt;
+     frmMain.lbX.caption := IntToStr(x);
      // ARTICLE
-     SQLQuery1.ParamByName('ARTICLE').AsString := Win2Utf(XLApp.Cells[x,1].Value);
+     frmMain.SQLQuery1.ParamByName('ARTICLE').AsString := Win2Utf(XLApp.Cells[x,1].Value);
      // MODEL_NUMBER
-     SQLQuery1.ParamByName('MODEL_NUMBER').AsString := Win2Utf(XLApp.Cells[x,2].Value);
+     frmMain.SQLQuery1.ParamByName('MODEL_NUMBER').AsString := Win2Utf(XLApp.Cells[x,2].Value);
      // MODEL_NAME
-     SQLQuery1.ParamByName('MODEL_NAME').AsString := Win2Utf(XLApp.Cells[x,3].Value);
+     frmMain.SQLQuery1.ParamByName('MODEL_NAME').AsString := Win2Utf(XLApp.Cells[x,3].Value);
      // COLOUR
-     SQLQuery1.ParamByName('COLOUR').AsString := Win2Utf(XLApp.Cells[x,4].Value);
+     frmMain.SQLQuery1.ParamByName('COLOUR').AsString := Win2Utf(XLApp.Cells[x,4].Value);
      // NET_PRICE
-     SQLQuery1.ParamByName('NET_PRICE').AsString := Win2Utf(XLApp.Cells[x,5].Value);
+     frmMain.SQLQuery1.ParamByName('NET_PRICE').AsString := Win2Utf(XLApp.Cells[x,5].Value);
      // REC_REC_PRICE
-     SQLQuery1.ParamByName('REC_REC_PRICE').AsString := Win2Utf(XLApp.Cells[x,6].Value);
+     frmMain.SQLQuery1.ParamByName('REC_REC_PRICE').AsString := Win2Utf(XLApp.Cells[x,6].Value);
      // LAUNCH_WEEK
-     SQLQuery1.ParamByName('LAUNCH_WEEK').AsString := Win2Utf(XLApp.Cells[x,7].Value);
+     frmMain.SQLQuery1.ParamByName('LAUNCH_WEEK').AsString := Win2Utf(XLApp.Cells[x,7].Value);
      // SIZE_DESCR
-     SQLQuery1.ParamByName('SIZE_DESCR').AsString := Win2Utf(XLApp.Cells[x,8].Value);
+     frmMain.SQLQuery1.ParamByName('SIZE_DESCR').AsString := Win2Utf(XLApp.Cells[x,8].Value);
      // EAN_NUMBER
-     SQLQuery1.ParamByName('EAN_NUMBER').AsString := Win2Utf(XLApp.Cells[x,9].Value);
+     frmMain.SQLQuery1.ParamByName('EAN_NUMBER').AsString := Win2Utf(XLApp.Cells[x,9].Value);
      // BRAND
-     SQLQuery1.ParamByName('BRAND').AsString := Win2Utf(XLApp.Cells[x,10].Value);
+     frmMain.SQLQuery1.ParamByName('BRAND').AsString := Win2Utf(XLApp.Cells[x,10].Value);
      // SIZE_INDEX
-     SQLQuery1.ParamByName('SIZE_INDEX').AsString := Win2Utf(XLApp.Cells[x,11].Value);
+     frmMain.SQLQuery1.ParamByName('SIZE_INDEX').AsString := Win2Utf(XLApp.Cells[x,11].Value);
      // DIVISION_ID
-     SQLQuery1.ParamByName('DIVISION_ID').AsString := Win2Utf(XLApp.Cells[x,12].Value);
+     frmMain.SQLQuery1.ParamByName('DIVISION_ID').AsString := Win2Utf(XLApp.Cells[x,12].Value);
      // DIVISION_DESCR_L
-     SQLQuery1.ParamByName('DIVISION_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,13].Value);
+     frmMain.SQLQuery1.ParamByName('DIVISION_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,13].Value);
      // SPORTS_CODE_ID
-     SQLQuery1.ParamByName('SPORTS_CODE_ID').AsString := Win2Utf(XLApp.Cells[x,14].Value);
+     frmMain.SQLQuery1.ParamByName('SPORTS_CODE_ID').AsString := Win2Utf(XLApp.Cells[x,14].Value);
      // SPORTS_CODE_DESCR_L
-     SQLQuery1.ParamByName('SPORTS_CODE_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,15].Value);
+     frmMain.SQLQuery1.ParamByName('SPORTS_CODE_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,15].Value);
      // GEND
-     SQLQuery1.ParamByName('GEND').AsString := Win2Utf(XLApp.Cells[x,16].Value);
+     frmMain.SQLQuery1.ParamByName('GEND').AsString := Win2Utf(XLApp.Cells[x,16].Value);
      // GENDER_NAME
-     SQLQuery1.ParamByName('GENDER_NAME').AsString := Win2Utf(XLApp.Cells[x,17].Value);
+     frmMain.SQLQuery1.ParamByName('GENDER_NAME').AsString := Win2Utf(XLApp.Cells[x,17].Value);
      // USERCODE
-     SQLQuery1.ParamByName('USERCODE').AsString := Win2Utf(XLApp.Cells[x,18].Value);
+     frmMain.SQLQuery1.ParamByName('USERCODE').AsString := Win2Utf(XLApp.Cells[x,18].Value);
      // ARTICLE_DESCR_L
-     SQLQuery1.ParamByName('ARTICLE_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,19].Value);
+     frmMain.SQLQuery1.ParamByName('ARTICLE_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,19].Value);
      // COLOUR_COMB_DESCR_L
-     SQLQuery1.ParamByName('COLOUR_COMB_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,20].Value);
+     frmMain.SQLQuery1.ParamByName('COLOUR_COMB_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,20].Value);
      // PRODUCT_GROUP_ID
-     SQLQuery1.ParamByName('PRODUCT_GROUP_ID').AsString := Win2Utf(XLApp.Cells[x,21].Value);
+     frmMain.SQLQuery1.ParamByName('PRODUCT_GROUP_ID').AsString := Win2Utf(XLApp.Cells[x,21].Value);
      // PRODUCT_GROUP_NAME
-     SQLQuery1.ParamByName('PRODUCT_GROUP_NAME').AsString := Win2Utf(XLApp.Cells[x,22].Value);
+     frmMain.SQLQuery1.ParamByName('PRODUCT_GROUP_NAME').AsString := Win2Utf(XLApp.Cells[x,22].Value);
      //PRODUCT_TYPE_ID
-     SQLQuery1.ParamByName('PRODUCT_TYPE_ID').AsString := Win2Utf(XLApp.Cells[x,23].Value);
+     frmMain.SQLQuery1.ParamByName('PRODUCT_TYPE_ID').AsString := Win2Utf(XLApp.Cells[x,23].Value);
      // PRODUCT_TYPE_NAME
-     SQLQuery1.ParamByName('PRODUCT_TYPE_NAME').AsString := Win2Utf(XLApp.Cells[x,24].Value);
+     frmMain.SQLQuery1.ParamByName('PRODUCT_TYPE_NAME').AsString := Win2Utf(XLApp.Cells[x,24].Value);
      // GENDER
-     SQLQuery1.ParamByName('GENDER').AsString := Win2Utf(XLApp.Cells[x,25].Value);
+     frmMain.SQLQuery1.ParamByName('GENDER').AsString := Win2Utf(XLApp.Cells[x,25].Value);
      // AGE
-     SQLQuery1.ParamByName('AGE').AsString := Win2Utf(XLApp.Cells[x,26].Value);
+     frmMain.SQLQuery1.ParamByName('AGE').AsString := Win2Utf(XLApp.Cells[x,26].Value);
      // MATERIAL
-     SQLQuery1.ParamByName('MATERIAL').AsString := Win2Utf(XLApp.Cells[x,27].Value);
+     frmMain.SQLQuery1.ParamByName('MATERIAL').AsString := Win2Utf(XLApp.Cells[x,27].Value);
      // POST
-     SQLQuery1.ExecSQL;
+     frmMain.SQLQuery1.ExecSQL;
      DM.SQLTransaction.Commit;
      cnt := cnt + 1;
-     lbImportCount.caption := IntToStr(cnt);
+     frmMain.lbImportCount.caption := IntToStr(cnt);
    end;
    ShowMessage('Import skončil');
  finally
    XLApp.Quit;
    XLAPP := Unassigned;
-   btExecute.Enabled := true;
-   btFileOpen.Enabled := true;
+   frmMain.btExecute.Enabled := true;
+   frmMain.btFileOpen.Enabled := true;
+  end;
+end;
+
+procedure TfrmMain.btExecuteClick(Sender: TObject);
+begin
+  if cbTypeImport.ItemIndex = 0 then
+  begin
+    importAdidas;
+  end;
+  if cbTypeImport.ItemIndex = 1 then
+  begin
+    importReebok;
   end;
 end;
 
