@@ -55,7 +55,8 @@ type
     procedure miImportClick(Sender: TObject);
     procedure pImportClick(Sender: TObject);
   private
-    { private declarations }
+    procedure importReebok;
+    procedure importAdidas;
   public
     { public declarations }
   end;
@@ -116,8 +117,8 @@ begin
   stop := true;
 end;
 
-procedure importReebok;
-Var XLApp: OLEVariant;
+procedure TfrmMain.importReebok;
+var XLApp: OLEVariant;
       x,y: LongInt;
       path: variant;
       xx,yy,cnt: LongInt;
@@ -215,8 +216,8 @@ begin
   end;
 end;
 
-procedure importAdidas;
-Var XLApp: OLEVariant;
+procedure TfrmMain.importAdidas;
+var XLApp: OLEVariant;
       x,y: LongInt;
       path: variant;
       xx,yy,cnt: LongInt;
