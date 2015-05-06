@@ -160,7 +160,7 @@ begin
      // COLOUR
      frmMain.SQLQuery1.ParamByName('COLOUR').AsString := Win2Utf(XLApp.Cells[x,4].Value);
      // NET_PRICE
-     frmMain.SQLQuery1.ParamByName('NET_PRICE').AsString := Win2Utf(XLApp.Cells[x,9].Value);
+     frmMain.SQLQuery1.ParamByName('NET_PRICE').AsString := StringReplace(StringReplace(Win2Utf(XLApp.Cells[x,9].Value), ' ', '', [rfReplaceAll, rfIgnoreCase]), '.', ',', [rfReplaceAll, rfIgnoreCase]);
      // REC_REC_PRICE
      frmMain.SQLQuery1.ParamByName('REC_REC_PRICE').AsString := Win2Utf(XLApp.Cells[x,10].Value);
      // LAUNCH_WEEK
