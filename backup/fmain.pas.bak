@@ -57,6 +57,8 @@ type
   private
     procedure importReebok;
     procedure importAdidas;
+    procedure createProductsReebok;
+    procedure createProductsAdidas;
   public
     { public declarations }
   end;
@@ -160,7 +162,7 @@ begin
      // COLOUR
      frmMain.SQLQuery1.ParamByName('COLOUR').AsString := Win2Utf(XLApp.Cells[x,4].Value);
      // NET_PRICE
-     frmMain.SQLQuery1.ParamByName('NET_PRICE').AsString := StringReplace(StringReplace(Win2Utf(XLApp.Cells[x,9].Value), ' ', '', [rfReplaceAll, rfIgnoreCase]), '.', ',', [rfReplaceAll, rfIgnoreCase]));
+     frmMain.SQLQuery1.ParamByName('NET_PRICE').AsString := StringReplace(StringReplace(Win2Utf(XLApp.Cells[x,9].Value), ' ', '', [rfReplaceAll, rfIgnoreCase]), '.', ',', [rfReplaceAll, rfIgnoreCase]);
      // REC_REC_PRICE
      frmMain.SQLQuery1.ParamByName('REC_REC_PRICE').AsString := Win2Utf(XLApp.Cells[x,10].Value);
      // LAUNCH_WEEK
@@ -331,7 +333,43 @@ begin
   end;
 end;
 
-procedure TfrmMain.btCreateProductsClick(Sender: TObject);
+procedure TfrmMain.createProductsReebok;
+var
+  Sqlquery : TSqlquery;
+  NewParam : TParam;
+begin
+ try
+  ProgressBar2.style := pbstMarquee;
+  SQLQuery1.Close;
+  SQLQuery1.SQL.Text := 'delete sessionid_temp where kod = ''IMPORT_REEBOK'' and sessionid = 999999';
+  DM.SQLTransaction.active := false;
+  DM.SQLTransaction.StartTransaction;
+  SQLQuery1.ExecSQL;
+  DM.SQLTransaction.Commit;
+
+  SQLQuery1.Close;
+  SQLQuery1.SQL.Text := 'begin import_produktu_adidas; end;';
+  DM.SQLTransaction.active := false;
+  DM.SQLTransaction.StartTransaction;
+  SQLQuery1.ExecSQL;
+  DM.SQLTransaction.Commit;
+
+  SQLQuery1.Close;
+  SQLQuery1.SQL.Text := 'select s1 from sessionid_temp where kod = ''IMPORT_REEBOK'' and sessionid = 999999';
+  SQLQuery1.Open;
+  lbCreatedCount.caption := SQLQuery1.FieldByName('S1').AsString;
+  SQLQuery1.Close;
+
+  ProgressBar2.style := pbstNormal;
+  ProgressBar2.position := 100;
+  ShowMessage('Založení produktů proběhlo');
+ finally
+   ProgressBar2.style := pbstNormal;
+ end;
+
+end;
+
+procedure TfrmMain.createProductsAdidas;
 var
   Sqlquery : TSqlquery;
   NewParam : TParam;
@@ -347,22 +385,10 @@ begin
 
   SQLQuery1.Close;
   SQLQuery1.SQL.Text := 'begin import_produktu_adidas; end;';
-  {SQLQuery1.Params.Clear;
-  NewParam := TParam.Create(Sqlquery.Params);
-  NewParam.Name := 'text';
-  NewParam.DataType := ftString;
-  NewParam.ParamType := ptOutput;
-  SQLQuery1.Params.AddParam(NewParam);}
-  //ShowMessage('Krok 0');
-  //SQLQuery1.Prepare;
-  //ShowMessage('Krok 1');
   DM.SQLTransaction.active := false;
   DM.SQLTransaction.StartTransaction;
   SQLQuery1.ExecSQL;
-  //ShowMessage('Krok 2');
   DM.SQLTransaction.Commit;
-  //ShowMessage('Krok 3');
-  //lbCreatedCount.caption := SQLQuery1.Params.ParamByName('text').AsString;
 
   SQLQuery1.Close;
   SQLQuery1.SQL.Text := 'select s1 from sessionid_temp where kod = ''IMPORT_ADIDAS'' and sessionid = 999999';
@@ -376,6 +402,19 @@ begin
  finally
    ProgressBar2.style := pbstNormal;
  end;
+
+end;
+
+procedure TfrmMain.btCreateProductsClick(Sender: TObject);
+begin
+ if cbTypeImport.ItemIndex = 0 then
+  begin
+    createProductsAdidas;
+  end;
+  if cbTypeImport.ItemIndex = 1 then
+  begin
+    createProductsReebok;
+  end;
 end;
 
 end.
