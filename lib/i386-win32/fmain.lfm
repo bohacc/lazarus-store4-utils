@@ -153,6 +153,8 @@ object frmMain: TfrmMain
         Items.Strings = (
           'import ADIDAS - excel, založení nových karet produktů'
           'import Reebok - excel, založení nových karet produktů'
+          'import Reebok 2015 - Q3 - Matky - excel, založení nových karet produktů'
+          'import Reebok 2015 - Q3 - Podkarty - excel, založení nových karet produktů'
           ''
         )
         TabOrder = 4
