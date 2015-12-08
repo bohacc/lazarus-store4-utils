@@ -640,6 +640,18 @@ begin
   begin
     createProductsReebok;
   end;
+  if cbTypeImport.ItemIndex = 2 then
+  begin
+    createProductsReebok;
+  end;
+  if cbTypeImport.ItemIndex = 3 then
+  begin
+    createProductsReebok;
+  end;
+  if cbTypeImport.ItemIndex = 4 then
+  begin
+    createProductsReebok;
+  end;
 end;
 
 end.
