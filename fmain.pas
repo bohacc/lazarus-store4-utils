@@ -58,6 +58,7 @@ type
     procedure importReebok;
     procedure importReebok2015Q3;
     procedure importReebok2015Q3Childs;
+    procedure importReebok2016;
     procedure importAdidas;
     procedure createProductsReebok;
     procedure createProductsAdidas;
@@ -475,6 +476,10 @@ begin
   begin
     importReebok2015Q3Childs;
   end;
+  if cbTypeImport.ItemIndex = 4 then
+  begin
+    importReebok2016;
+  end;
 end;
 
 procedure TfrmMain.createProductsReebok;
@@ -548,6 +553,82 @@ begin
  end;
 
 end;
+
+procedure TfrmMain.importReebok2016;
+var XLApp: OLEVariant;
+      x,y: LongInt;
+      path: variant;
+      xx,yy,cnt: LongInt;
+begin
+ XLApp := CreateOleObject('Excel.Application'); // comobj
+ try
+   cnt := 0;
+   frmMain.btExecute.Enabled := false;
+   frmMain.btFileOpen.Enabled := false;
+   XLApp.Visible := False;         // Hide Excel
+   XLApp.DisplayAlerts := False;
+   path := frmMain.edFile.Text;
+   XLApp.Workbooks.Open(Path);     // Open the Workbook
+   xx := XLApp.WorkBooks[1].WorkSheets[1].UsedRange.Rows.Count;
+   yy := XLApp.WorkBooks[1].WorkSheets[1].UsedRange.Columns.Count;
+   frmMain.lbCount.Caption := IntToStr(xx);
+   frmMain.ProgressBar1.Position := 0;
+   frmMain.ProgressBar1.Min := 0;
+   frmMain.ProgressBar1.Max := xx;
+   frmMain.lbX.caption := '0';
+   frmMain.SQLQuery1.SQL.Text := 'DELETE import_produkty_reebok';
+   frmMain.SQLQuery1.ExecSQL;
+   DM.SQLTransaction.Commit;
+   frmMain.SQLQuery1.SQL.Text :=
+     'insert into import_produkty_reebok ' +
+     ' (ARTICLE, MODEL_NUMBER, MODEL_NAME, COLOUR, NET_PRICE, REC_REC_PRICE, LAUNCH_WEEK, SIZE_DESCR, EAN_NUMBER, BRAND, SIZE_INDEX, DIVISION_ID, DIVISION_DESCR_L, SPORTS_CODE_ID, SPORTS_CODE_DESCR_L, USERCODE, ARTICLE_DESCR_L, COLOUR_COMB_DESCR_L, PRODUCT_GROUP_ID, PRODUCT_GROUP_NAME, PRODUCT_TYPE_ID, PRODUCT_TYPE_NAME, GENDER, AGE, MATERIAL) ' +
+     'values ' +
+     ' (:ARTICLE, :MODEL_NUMBER, :MODEL_NAME, :COLOUR, :NET_PRICE, :REC_REC_PRICE, :LAUNCH_WEEK, :SIZE_DESCR, :EAN_NUMBER, :BRAND, :SIZE_INDEX, :DIVISION_ID, :DIVISION_DESCR_L, :SPORTS_CODE_ID, :SPORTS_CODE_DESCR_L, :USERCODE, :ARTICLE_DESCR_L, :COLOUR_COMB_DESCR_L, :PRODUCT_GROUP_ID, :PRODUCT_GROUP_NAME, :PRODUCT_TYPE_ID, :PRODUCT_TYPE_NAME, :GENDER, :AGE, :MATERIAL)';
+   for x := 2 to xx do
+   begin
+     frmMain.ProgressBar1.StepIt;
+     frmMain.lbX.caption := IntToStr(x);
+     // ARTICLE
+     frmMain.SQLQuery1.ParamByName('ARTICLE').AsString := Win2Utf(XLApp.Cells[x,1].Value);
+     // MODEL_NUMBER
+     frmMain.SQLQuery1.ParamByName('MODEL_NUMBER').AsString := Win2Utf(XLApp.Cells[x,2].Value);
+     // MODEL_NAME
+     frmMain.SQLQuery1.ParamByName('MODEL_NAME').AsString := Win2Utf(XLApp.Cells[x,3].Value);
+     // COLOUR
+     frmMain.SQLQuery1.ParamByName('COLOUR').AsString := Win2Utf(XLApp.Cells[x,4].Value);
+     // NET_PRICE
+     frmMain.SQLQuery1.ParamByName('NET_PRICE').AsString := StringReplace(StringReplace(Win2Utf(XLApp.Cells[x,5].Value), ' ', '', [rfReplaceAll, rfIgnoreCase]), '.', ',', [rfReplaceAll, rfIgnoreCase]);
+     // REC_REC_PRICE
+     frmMain.SQLQuery1.ParamByName('REC_REC_PRICE').AsString := Win2Utf(XLApp.Cells[x,6].Value);
+     // LAUNCH_WEEK
+     frmMain.SQLQuery1.ParamByName('LAUNCH_WEEK').AsString := Win2Utf(XLApp.Cells[x,7].Value);
+     // SIZE_DESCR
+     frmMain.SQLQuery1.ParamByName('SIZE_DESCR').AsString := Win2Utf(XLApp.Cells[x,8].Value);
+     // EAN_NUMBER
+     frmMain.SQLQuery1.ParamByName('EAN_NUMBER').AsString := Win2Utf(XLApp.Cells[x,9].Value);
+     // PRODUCT_TYPE_NAME
+     frmMain.SQLQuery1.ParamByName('PRODUCT_TYPE_NAME').AsString := Win2Utf(XLApp.Cells[x,10].Value);
+     // GENDER
+     frmMain.SQLQuery1.ParamByName('GENDER').AsString := Win2Utf(XLApp.Cells[x,11].Value);
+     // AGE
+     frmMain.SQLQuery1.ParamByName('AGE').AsString := Win2Utf(XLApp.Cells[x,12].Value);
+     // MATERIAL
+     frmMain.SQLQuery1.ParamByName('MATERIAL').AsString := Win2Utf(XLApp.Cells[x,13].Value);
+     // POST
+     frmMain.SQLQuery1.ExecSQL;
+     DM.SQLTransaction.Commit;
+     cnt := cnt + 1;
+     frmMain.lbImportCount.caption := IntToStr(cnt);
+   end;
+   ShowMessage('Import skončil');
+ finally
+   XLApp.Quit;
+   XLAPP := Unassigned;
+   frmMain.btExecute.Enabled := true;
+   frmMain.btFileOpen.Enabled := true;
+  end;
+end;
+
 
 procedure TfrmMain.btCreateProductsClick(Sender: TObject);
 begin

@@ -14,7 +14,7 @@ object frmLogin: TfrmLogin
   Constraints.MinWidth = 358
   OnShow = FormShow
   Position = poDesktopCenter
-  LCLVersion = '1.2.6.0'
+  LCLVersion = '1.4.4.0'
   object Shape1: TShape
     Left = 0
     Height = 140
@@ -523,31 +523,31 @@ object frmLogin: TfrmLogin
   end
   object Label1: TLabel
     Left = 100
-    Height = 13
+    Height = 15
     Top = 22
-    Width = 13
+    Width = 15
     Caption = 'DB'
     ParentColor = False
   end
   object Label2: TLabel
     Left = 100
-    Height = 13
+    Height = 15
     Top = 48
-    Width = 31
+    Width = 35
     Caption = 'Jméno'
     ParentColor = False
   end
   object Label3: TLabel
     Left = 100
-    Height = 13
+    Height = 15
     Top = 75
-    Width = 26
+    Width = 30
     Caption = 'Heslo'
     ParentColor = False
   end
   object edDBName: TEdit
     Left = 175
-    Height = 21
+    Height = 23
     Top = 14
     Width = 160
     OnKeyDown = edDBNameKeyDown
@@ -555,7 +555,7 @@ object frmLogin: TfrmLogin
   end
   object edUser: TEdit
     Left = 175
-    Height = 21
+    Height = 23
     Top = 41
     Width = 160
     OnKeyDown = edUserKeyDown
@@ -563,7 +563,7 @@ object frmLogin: TfrmLogin
   end
   object edPassword: TEdit
     Left = 175
-    Height = 21
+    Height = 23
     Top = 68
     Width = 160
     EchoMode = emPassword

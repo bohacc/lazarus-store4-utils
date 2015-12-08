@@ -43,7 +43,6 @@
       <Unit0>
         <Filename Value="store4.lpr"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="store4"/>
       </Unit0>
       <Unit1>
         <Filename Value="fmain.pas"/>
@@ -51,7 +50,6 @@
         <ComponentName Value="frmMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="fmain"/>
       </Unit1>
       <Unit2>
         <Filename Value="dabout.pas"/>
@@ -59,7 +57,6 @@
         <ComponentName Value="frmAbout"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="dabout"/>
       </Unit2>
       <Unit3>
         <Filename Value="flogin.pas"/>
@@ -67,7 +64,6 @@
         <ComponentName Value="frmLogin"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="flogin"/>
       </Unit3>
       <Unit4>
         <Filename Value="data_module.pas"/>
@@ -90,7 +86,6 @@
       <Unit7>
         <Filename Value="cestina.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="cestina"/>
       </Unit7>
     </Units>
   </ProjectOptions>
@@ -111,12 +106,6 @@
         </Win32>
       </Options>
     </Linking>
-    <Other>
-      <CompilerMessages>
-        <MsgFileName Value=""/>
-      </CompilerMessages>
-      <CompilerPath Value="$(CompPath)"/>
-    </Other>
   </CompilerOptions>
   <Debugging>
     <Exceptions Count="3">

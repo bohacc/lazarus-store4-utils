@@ -5,8 +5,8 @@ unit flogin;
 interface
 
 uses
-  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
-  Dialogs, StdCtrls, Buttons, IniFiles, DB, ExtCtrls, FileUtil,
+  Windows, {Messages,} SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, IniFiles, {DB,} ExtCtrls, FileUtil,
   LResources, sqldb, OracleConnection;
 
 type
@@ -86,8 +86,8 @@ try
   // uživatel
   frmMain.lbUzivatel.Caption:=UpperCase(DM.OracleConnection.UserName);
 
-  //if neprelozitelne_objekty then
-  //  MessageDlg('Byly nalezeny nepřeložené objekty v databázi, informujte administrátora.',mtWarning,[mbOK],0);
+  if neprelozitelne_objekty then
+    MessageDlg('Byly nalezeny nepřeložené objekty v databázi, informujte administrátora.',mtWarning,[mbOK],0);
 
   Close;
 finally

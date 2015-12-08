@@ -7,7 +7,7 @@ LazarusResources.Add('TfrmLogin','FORMDATA',[
   +#11'ClientWidth'#3'f'#1#21'Constraints.MaxHeight'#3#140#0#20'Constraints.Max'
   +'Width'#3'f'#1#21'Constraints.MinHeight'#3#140#0#20'Constraints.MinWidth'#3
   +'f'#1#6'OnShow'#7#8'FormShow'#8'Position'#7#15'poDesktopCenter'#10'LCLVersio'
-  +'n'#6#7'1.2.6.0'#0#6'TShape'#6'Shape1'#4'Left'#2#0#6'Height'#3#140#0#3'Top'#2
+  +'n'#6#7'1.4.4.0'#0#6'TShape'#6'Shape1'#4'Left'#2#0#6'Height'#3#140#0#3'Top'#2
   +#0#5'Width'#3'f'#1#5'Align'#7#8'alCustom'#11'Brush.Color'#7#9'clBtnFace'#9'P'
   +'en.Width'#2#2#14'OnChangeBounds'#7#18'Shape1ChangeBounds'#0#0#12'TSpeedButt'
   +'on'#4'sbOK'#4'Left'#3#136#0#6'Height'#2#22#3'Top'#2'h'#5'Width'#2'`'#7'Capt'
@@ -690,15 +690,15 @@ LazarusResources.Add('TfrmLogin','FORMDATA',[
   +#158#166'"'#164#169#173#1#0#0#0#0#0#0#0#0#0#0#0#0#224#7#0#0#192#3#0#0#128#1#0
   +#0#128#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0#0
   +#128#0#0#0#128#1#0#0#192#3#0#0#224#7#0#0#0#0#6'TLabel'#6'Label1'#4'Left'#2'd'
-  +#6'Height'#2#13#3'Top'#2#22#5'Width'#2#13#7'Caption'#6#2'DB'#11'ParentColor'
-  +#8#0#0#6'TLabel'#6'Label2'#4'Left'#2'd'#6'Height'#2#13#3'Top'#2'0'#5'Width'#2
-  +#31#7'Caption'#6#6'Jm'#195#169'no'#11'ParentColor'#8#0#0#6'TLabel'#6'Label3'
-  +#4'Left'#2'd'#6'Height'#2#13#3'Top'#2'K'#5'Width'#2#26#7'Caption'#6#5'Heslo'
-  +#11'ParentColor'#8#0#0#5'TEdit'#8'edDBName'#4'Left'#3#175#0#6'Height'#2#21#3
+  +#6'Height'#2#15#3'Top'#2#22#5'Width'#2#15#7'Caption'#6#2'DB'#11'ParentColor'
+  +#8#0#0#6'TLabel'#6'Label2'#4'Left'#2'd'#6'Height'#2#15#3'Top'#2'0'#5'Width'#2
+  +'#'#7'Caption'#6#6'Jm'#195#169'no'#11'ParentColor'#8#0#0#6'TLabel'#6'Label3'
+  +#4'Left'#2'd'#6'Height'#2#15#3'Top'#2'K'#5'Width'#2#30#7'Caption'#6#5'Heslo'
+  +#11'ParentColor'#8#0#0#5'TEdit'#8'edDBName'#4'Left'#3#175#0#6'Height'#2#23#3
   +'Top'#2#14#5'Width'#3#160#0#9'OnKeyDown'#7#15'edDBNameKeyDown'#8'TabOrder'#2
-  +#0#0#0#5'TEdit'#6'edUser'#4'Left'#3#175#0#6'Height'#2#21#3'Top'#2')'#5'Width'
+  +#0#0#0#5'TEdit'#6'edUser'#4'Left'#3#175#0#6'Height'#2#23#3'Top'#2')'#5'Width'
   +#3#160#0#9'OnKeyDown'#7#13'edUserKeyDown'#8'TabOrder'#2#1#0#0#5'TEdit'#10'ed'
-  +'Password'#4'Left'#3#175#0#6'Height'#2#21#3'Top'#2'D'#5'Width'#3#160#0#8'Ech'
+  +'Password'#4'Left'#3#175#0#6'Height'#2#23#3'Top'#2'D'#5'Width'#3#160#0#8'Ech'
   +'oMode'#7#10'emPassword'#7'OnEnter'#7#15'edPasswordEnter'#9'OnKeyDown'#7#17
   +'edPasswordKeyDown'#12'PasswordChar'#6#1'*'#8'TabOrder'#2#2#0#0#0
 ]);
