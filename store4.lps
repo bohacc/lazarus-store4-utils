@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectSession>
     <PathDelim Value="\"/>
@@ -8,8 +8,11 @@
       <Unit0>
         <Filename Value="store4.lpr"/>
         <IsPartOfProject Value="True"/>
-        <CursorPos X="42" Y="14"/>
-        <UsageCount Value="69"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="7"/>
+        <CursorPos X="48" Y="20"/>
+        <UsageCount Value="70"/>
+        <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="fmain.pas"/>
@@ -17,13 +20,10 @@
         <ComponentName Value="frmMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="fmain"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="6"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="139"/>
         <CursorPos X="31" Y="139"/>
-        <UsageCount Value="69"/>
+        <UsageCount Value="70"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -33,12 +33,10 @@
         <ComponentName Value="frmAbout"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="dabout"/>
         <EditorIndex Value="4"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="20"/>
         <CursorPos X="35" Y="29"/>
-        <UsageCount Value="69"/>
+        <UsageCount Value="70"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit2>
@@ -48,12 +46,10 @@
         <ComponentName Value="frmLogin"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="flogin"/>
         <EditorIndex Value="1"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="16"/>
         <CursorPos X="61" Y="32"/>
-        <UsageCount Value="69"/>
+        <UsageCount Value="70"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -65,10 +61,8 @@
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="Data_module"/>
         <EditorIndex Value="5"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
         <CursorPos X="31" Y="15"/>
-        <UsageCount Value="68"/>
+        <UsageCount Value="69"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit4>
@@ -77,10 +71,9 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="Utils"/>
         <EditorIndex Value="2"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="258"/>
         <CursorPos X="25" Y="286"/>
-        <UsageCount Value="68"/>
+        <UsageCount Value="69"/>
         <Loaded Value="True"/>
       </Unit5>
       <Unit6>
@@ -88,27 +81,19 @@
         <IsPartOfProject Value="True"/>
         <UnitName Value="uConsts"/>
         <EditorIndex Value="3"/>
-        <WindowIndex Value="0"/>
-        <TopLine Value="1"/>
         <CursorPos X="22" Y="9"/>
-        <UsageCount Value="68"/>
+        <UsageCount Value="69"/>
         <Loaded Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="cestina.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="cestina"/>
-        <EditorIndex Value="0"/>
-        <WindowIndex Value="0"/>
         <TopLine Value="8"/>
         <CursorPos X="44" Y="22"/>
-        <UsageCount Value="56"/>
+        <UsageCount Value="57"/>
         <Loaded Value="True"/>
       </Unit7>
     </Units>
-    <General>
-      <ActiveWindowIndexAtStart Value="0"/>
-    </General>
     <JumpHistory Count="27" HistoryIndex="26">
       <Position1>
         <Filename Value="fmain.pas"/>
@@ -200,7 +185,7 @@
       </Position22>
       <Position23>
         <Filename Value="fmain.pas"/>
-        <Caret Line="3" Column="100" TopLine="1"/>
+        <Caret Line="3" Column="100"/>
       </Position23>
       <Position24>
         <Filename Value="fmain.pas"/>
@@ -215,8 +200,8 @@
         <Caret Line="481" Column="21" TopLine="444"/>
       </Position26>
       <Position27>
-        <Filename Value="fmain.pas"/>
-        <Caret Line="138" Column="31" TopLine="151"/>
+        <Filename Value="store4.lpr"/>
+        <Caret Line="14" Column="42"/>
       </Position27>
     </JumpHistory>
   </ProjectSession>
