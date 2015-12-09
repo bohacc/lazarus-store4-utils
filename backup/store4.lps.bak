@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0"?>
 <CONFIG>
   <ProjectSession>
     <PathDelim Value="\"/>
@@ -8,11 +8,8 @@
       <Unit0>
         <Filename Value="store4.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="5"/>
-        <CursorPos Y="24"/>
-        <UsageCount Value="68"/>
-        <Loaded Value="True"/>
+        <CursorPos X="42" Y="14"/>
+        <UsageCount Value="69"/>
       </Unit0>
       <Unit1>
         <Filename Value="fmain.pas"/>
@@ -20,9 +17,13 @@
         <ComponentName Value="frmMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <TopLine Value="599"/>
-        <CursorPos X="15" Y="615"/>
-        <UsageCount Value="68"/>
+        <UnitName Value="fmain"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="6"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="151"/>
+        <CursorPos X="31" Y="138"/>
+        <UsageCount Value="69"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -32,10 +33,12 @@
         <ComponentName Value="frmAbout"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="6"/>
+        <UnitName Value="dabout"/>
+        <EditorIndex Value="4"/>
+        <WindowIndex Value="0"/>
         <TopLine Value="20"/>
-        <CursorPos X="31" Y="24"/>
-        <UsageCount Value="68"/>
+        <CursorPos X="35" Y="29"/>
+        <UsageCount Value="69"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit2>
@@ -45,10 +48,12 @@
         <ComponentName Value="frmLogin"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="2"/>
+        <UnitName Value="flogin"/>
+        <EditorIndex Value="1"/>
+        <WindowIndex Value="0"/>
         <TopLine Value="16"/>
         <CursorPos X="61" Y="32"/>
-        <UsageCount Value="68"/>
+        <UsageCount Value="69"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -59,9 +64,11 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="Data_module"/>
-        <EditorIndex Value="7"/>
-        <CursorPos X="51" Y="17"/>
-        <UsageCount Value="67"/>
+        <EditorIndex Value="5"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
+        <CursorPos X="31" Y="15"/>
+        <UsageCount Value="68"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit4>
@@ -69,32 +76,40 @@
         <Filename Value="utils.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Utils"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="2"/>
+        <WindowIndex Value="0"/>
         <TopLine Value="258"/>
         <CursorPos X="25" Y="286"/>
-        <UsageCount Value="67"/>
+        <UsageCount Value="68"/>
         <Loaded Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="uconsts.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="uConsts"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="3"/>
+        <WindowIndex Value="0"/>
+        <TopLine Value="1"/>
         <CursorPos X="22" Y="9"/>
-        <UsageCount Value="67"/>
+        <UsageCount Value="68"/>
         <Loaded Value="True"/>
       </Unit6>
       <Unit7>
         <Filename Value="cestina.pas"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="1"/>
+        <UnitName Value="cestina"/>
+        <EditorIndex Value="0"/>
+        <WindowIndex Value="0"/>
         <TopLine Value="8"/>
         <CursorPos X="44" Y="22"/>
-        <UsageCount Value="55"/>
+        <UsageCount Value="56"/>
         <Loaded Value="True"/>
       </Unit7>
     </Units>
-    <JumpHistory Count="30" HistoryIndex="29">
+    <General>
+      <ActiveWindowIndexAtStart Value="0"/>
+    </General>
+    <JumpHistory Count="26" HistoryIndex="25">
       <Position1>
         <Filename Value="fmain.pas"/>
         <Caret Line="127" Column="41" TopLine="120"/>
@@ -148,73 +163,57 @@
         <Caret Line="90" Column="3" TopLine="67"/>
       </Position13>
       <Position14>
-        <Filename Value="flogin.pas"/>
-        <Caret Line="19" Column="43"/>
+        <Filename Value="fmain.pas"/>
+        <Caret Line="470" Column="37" TopLine="458"/>
       </Position14>
       <Position15>
-        <Filename Value="flogin.pas"/>
-        <Caret Line="9" Column="41"/>
+        <Filename Value="fmain.pas"/>
+        <Caret Line="60" Column="39" TopLine="48"/>
       </Position15>
       <Position16>
-        <Filename Value="flogin.pas"/>
-        <Caret Line="8" Column="12"/>
+        <Filename Value="fmain.pas"/>
+        <Caret Line="58" Column="27" TopLine="47"/>
       </Position16>
       <Position17>
         <Filename Value="fmain.pas"/>
-        <Caret Line="470" Column="37" TopLine="458"/>
+        <Caret Line="59" Column="27" TopLine="47"/>
       </Position17>
       <Position18>
         <Filename Value="fmain.pas"/>
-        <Caret Line="60" Column="39" TopLine="48"/>
+        <Caret Line="60" Column="27" TopLine="47"/>
       </Position18>
       <Position19>
-        <Filename Value="store4.lpr"/>
-        <Caret Line="14" Column="35"/>
+        <Filename Value="fmain.pas"/>
+        <Caret Line="61" Column="27" TopLine="47"/>
       </Position19>
       <Position20>
-        <Filename Value="flogin.pas"/>
-        <Caret Line="8" Column="12"/>
+        <Filename Value="fmain.pas"/>
+        <Caret Line="125" Column="32" TopLine="104"/>
       </Position20>
       <Position21>
-        <Filename Value="store4.lpr"/>
-        <Caret Line="21" Column="22"/>
+        <Filename Value="fmain.pas"/>
+        <Caret Line="224" Column="32" TopLine="203"/>
       </Position21>
       <Position22>
-        <Filename Value="store4.lpr"/>
-        <Caret Line="24"/>
+        <Filename Value="fmain.pas"/>
+        <Caret Line="291" Column="32" TopLine="270"/>
       </Position22>
       <Position23>
         <Filename Value="fmain.pas"/>
-        <Caret Line="58" Column="27" TopLine="47"/>
+        <Caret Line="3" Column="100" TopLine="1"/>
       </Position23>
       <Position24>
         <Filename Value="fmain.pas"/>
-        <Caret Line="59" Column="27" TopLine="47"/>
+        <Caret Line="61" Column="31" TopLine="25"/>
       </Position24>
       <Position25>
         <Filename Value="fmain.pas"/>
-        <Caret Line="60" Column="27" TopLine="47"/>
+        <Caret Line="479" Column="32" TopLine="444"/>
       </Position25>
       <Position26>
         <Filename Value="fmain.pas"/>
-        <Caret Line="61" Column="27" TopLine="47"/>
+        <Caret Line="481" Column="21" TopLine="444"/>
       </Position26>
-      <Position27>
-        <Filename Value="fmain.pas"/>
-        <Caret Line="125" Column="32" TopLine="104"/>
-      </Position27>
-      <Position28>
-        <Filename Value="fmain.pas"/>
-        <Caret Line="224" Column="32" TopLine="203"/>
-      </Position28>
-      <Position29>
-        <Filename Value="fmain.pas"/>
-        <Caret Line="291" Column="32" TopLine="270"/>
-      </Position29>
-      <Position30>
-        <Filename Value="store4.lpr"/>
-        <Caret Line="15" Column="47"/>
-      </Position30>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>

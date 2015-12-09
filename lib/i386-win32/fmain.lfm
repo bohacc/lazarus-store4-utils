@@ -1,7 +1,7 @@
 object frmMain: TfrmMain
-  Left = 339
+  Left = 451
   Height = 222
-  Top = 178
+  Top = 210
   Width = 620
   Caption = 'Store4 - Utils'
   ClientHeight = 202
@@ -10,7 +10,7 @@ object frmMain: TfrmMain
   Constraints.MinWidth = 620
   Menu = MainMenu
   Position = poDesktopCenter
-  LCLVersion = '1.4.4.0'
+  LCLVersion = '1.0.10.0'
   object StatusBar1: TStatusBar
     Left = 0
     Height = 23
@@ -36,7 +36,7 @@ object frmMain: TfrmMain
       Width = 618
       Align = alClient
       Caption = 'Import'
-      ClientHeight = 139
+      ClientHeight = 141
       ClientWidth = 614
       TabOrder = 0
       OnClick = GroupBox1Click
@@ -59,9 +59,9 @@ object frmMain: TfrmMain
       end
       object Label1: TLabel
         Left = 88
-        Height = 15
+        Height = 16
         Top = 59
-        Width = 41
+        Width = 42
         Caption = 'průběh:'
         ParentColor = False
       end
@@ -76,25 +76,25 @@ object frmMain: TfrmMain
       end
       object Label2: TLabel
         Left = 10
-        Height = 15
+        Height = 16
         Top = 126
-        Width = 74
+        Width = 75
         Caption = 'celkem řádků:'
         ParentColor = False
       end
       object Label3: TLabel
         Left = 160
-        Height = 15
+        Height = 16
         Top = 126
-        Width = 85
+        Width = 86
         Caption = 'naimportováno:'
         ParentColor = False
       end
       object Label4: TLabel
         Left = 484
-        Height = 15
+        Height = 16
         Top = 126
-        Width = 60
+        Width = 61
         Caption = 'odmítnuto:'
         ParentColor = False
       end
@@ -137,9 +137,9 @@ object frmMain: TfrmMain
       end
       object Label8: TLabel
         Left = 10
-        Height = 15
+        Height = 16
         Top = 7
-        Width = 69
+        Width = 70
         Caption = 'Typ importu:'
         ParentColor = False
       end
@@ -155,7 +155,6 @@ object frmMain: TfrmMain
           'import Reebok - excel, založení nových karet produktů'
           'import Reebok 2015 - Q3 - Matky - excel, založení nových karet produktů'
           'import Reebok 2015 - Q3 - Podkarty - excel, založení nových karet produktů'
-          'import Reebok 2016 - excel, založení nových karet produktů'
         )
         TabOrder = 4
       end
@@ -188,9 +187,9 @@ object frmMain: TfrmMain
       end
       object Label5: TLabel
         Left = 309
-        Height = 15
+        Height = 16
         Top = 126
-        Width = 101
+        Width = 102
         Caption = 'založeno produktů:'
         ParentColor = False
       end
@@ -201,6 +200,14 @@ object frmMain: TfrmMain
         Width = 64
         AutoSize = False
         Caption = '0'
+        ParentColor = False
+      end
+      object Label6: TLabel
+        Left = 90
+        Height = 16
+        Top = 91
+        Width = 408
+        Caption = 'založení je pouze pro type index 0 a 1, ostatni se dělá ručně puštěním fce v DB'
         ParentColor = False
       end
     end
@@ -217,9 +224,9 @@ object frmMain: TfrmMain
     TabOrder = 2
     object Label9: TLabel
       Left = 24
-      Height = 15
+      Height = 16
       Top = 0
-      Width = 106
+      Width = 107
       Caption = 'přihlášený uživatel:'
       Font.Style = [fsBold]
       ParentColor = False
