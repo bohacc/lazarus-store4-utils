@@ -1,0 +1,81 @@
+object frmAbout: TfrmAbout
+  Left = 393
+  Height = 145
+  Top = 223
+  Width = 319
+  BorderStyle = bsDialog
+  Caption = 'O aplikaci'
+  ClientHeight = 145
+  ClientWidth = 319
+  Position = poOwnerFormCenter
+  LCLVersion = '1.2.6.0'
+  object btOK: TButton
+    Left = 237
+    Height = 25
+    Top = 117
+    Width = 75
+    Caption = 'OK'
+    ModalResult = 11
+    TabOrder = 0
+  end
+  object GroupBox1: TGroupBox
+    Left = 8
+    Height = 105
+    Top = 8
+    Width = 304
+    Caption = 'Store4 - Utils'
+    ClientHeight = 87
+    ClientWidth = 300
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 15
+      Height = 13
+      Top = 9
+      Width = 165
+      Caption = 'Pomocná aplikace pro Store4'
+      Font.Style = [fsBold]
+      ParentColor = False
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 15
+      Height = 13
+      Top = 28
+      Width = 31
+      Caption = 'Autor:'
+      ParentColor = False
+    end
+    object Label3: TLabel
+      Left = 57
+      Height = 13
+      Top = 28
+      Width = 62
+      Caption = 'Martin Boháč'
+      ParentColor = False
+    end
+    object Label4: TLabel
+      Left = 57
+      Height = 13
+      Top = 45
+      Width = 94
+      Caption = 'bohacc@seznam.cz'
+      ParentColor = False
+    end
+    object Label5: TLabel
+      Left = 15
+      Height = 13
+      Top = 63
+      Width = 36
+      Caption = 'GitHub:'
+      ParentColor = False
+    end
+    object Label6: TLabel
+      Left = 57
+      Height = 13
+      Top = 63
+      Width = 240
+      Caption = 'https://github.com/bohacc/lazarus-store4-utils.git'
+      ParentColor = False
+    end
+  end
+end

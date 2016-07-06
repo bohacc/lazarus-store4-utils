@@ -1064,9 +1064,9 @@ var
   tmp, pos, del: string;
 begin
   try
-    pos := AnsiPos(comma, str);
-    if pos > 0 then
+    if AnsiPos(comma, str) > 0 then
     begin
+      pos := AnsiPos(comma, str);
       if typeOper = 0 then
         tmp := Copy(str, 1, pos - 1)
       else
