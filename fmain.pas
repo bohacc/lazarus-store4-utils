@@ -404,13 +404,13 @@ begin
      // REC_REC_PRICE
      frmMain.SQLQuery1.ParamByName('REC_REC_PRICE').AsString := StringReplace(StringReplace(Win2Utf(XLApp.Cells[x,10].Value), ' ', '', [rfReplaceAll, rfIgnoreCase]), '.', ',', [rfReplaceAll, rfIgnoreCase]);
      // LAUNCH_WEEK
-     //frmMain.SQLQuery1.ParamByName('LAUNCH_WEEK').AsString := Win2Utf(XLApp.Cells[x,7].Value);
+     frmMain.SQLQuery1.ParamByName('LAUNCH_WEEK').AsString := '';
      // SIZE_DESCR
      frmMain.SQLQuery1.ParamByName('SIZE_DESCR').AsString := Win2Utf(XLApp.Cells[x,6].Value);
      // EAN_NUMBER
      frmMain.SQLQuery1.ParamByName('EAN_NUMBER').AsString := Win2Utf(XLApp.Cells[x,7].Value);
      // BRAND
-     //frmMain.SQLQuery1.ParamByName('BRAND').AsString := Win2Utf(XLApp.Cells[x,10].Value);
+     frmMain.SQLQuery1.ParamByName('BRAND').AsString := '';
      // SIZE_INDEX
      frmMain.SQLQuery1.ParamByName('SIZE_INDEX').AsString := Win2Utf(XLApp.Cells[x,5].Value);
      // DIVISION_ID
@@ -422,11 +422,11 @@ begin
      // SPORTS_CODE_DESCR_L
      frmMain.SQLQuery1.ParamByName('SPORTS_CODE_DESCR_L').AsString := Utils.getIdOrName(Win2Utf(XLApp.Cells[x,13].Value), 1, comma);
      // GEND
-     //frmMain.SQLQuery1.ParamByName('GEND').AsString := Win2Utf(XLApp.Cells[x,16].Value);
+     frmMain.SQLQuery1.ParamByName('GEND').AsString := '';
      // GENDER_NAME
      frmMain.SQLQuery1.ParamByName('GENDER_NAME').AsString := Utils.getIdOrName(Win2Utf(XLApp.Cells[x,12].Value), 1, comma);
      // USERCODE
-     //frmMain.SQLQuery1.ParamByName('USERCODE').AsString := Win2Utf(XLApp.Cells[x,18].Value);
+     frmMain.SQLQuery1.ParamByName('USERCODE').AsString := '';
      // ARTICLE_DESCR_L
      frmMain.SQLQuery1.ParamByName('ARTICLE_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,2].Value);
      // COLOUR_COMB_DESCR_L
@@ -442,7 +442,7 @@ begin
      // GENDER
      frmMain.SQLQuery1.ParamByName('GENDER').AsString := Win2Utf(XLApp.Cells[x,12].Value);
      // AGE
-     //frmMain.SQLQuery1.ParamByName('AGE').AsString := Win2Utf(XLApp.Cells[x,26].Value);
+     frmMain.SQLQuery1.ParamByName('AGE').AsString := '';
      // MATERIAL
      frmMain.SQLQuery1.ParamByName('MATERIAL').AsString := Win2Utf(XLApp.Cells[x,3].Value);
      // POST

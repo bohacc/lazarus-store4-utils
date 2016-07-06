@@ -5,13 +5,14 @@ unit Data_module;
 interface
 
 uses
-  Classes, SysUtils, FileUtil, LResources, Forms, Controls, Dialogs, sqldb, db;
+  Classes, SysUtils, FileUtil, LResources, Forms, Controls, Dialogs, sqldb, OracleConnection, db;
 
 type
 
   { TDM }
 
   TDM = class(TDataModule)
+    OracleConnection: TOracleConnection;
     SQLTransaction: TSQLTransaction;
     procedure DataModuleCreate(Sender: TObject);
     procedure OracleConnectionAfterConnect(Sender: TObject);

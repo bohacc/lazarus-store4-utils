@@ -71,7 +71,7 @@ var
 
 implementation
 
-uses dabout, ComObj, cestina, Data_module;
+uses dabout, ComObj, cestina, Data_module, Utils;
 
 {$R *.lfm}
 
@@ -165,47 +165,47 @@ begin
      // COLOUR
      frmMain.SQLQuery1.ParamByName('COLOUR').AsString := Win2Utf(XLApp.Cells[x,4].Value);
      // NET_PRICE
-     frmMain.SQLQuery1.ParamByName('NET_PRICE').AsString := StringReplace(StringReplace(Win2Utf(XLApp.Cells[x,9].Value), ' ', '', [rfReplaceAll, rfIgnoreCase]), '.', ',', [rfReplaceAll, rfIgnoreCase]);
+     frmMain.SQLQuery1.ParamByName('NET_PRICE').AsString := StringReplace(StringReplace(Win2Utf(XLApp.Cells[x,5].Value), ' ', '', [rfReplaceAll, rfIgnoreCase]), '.', ',', [rfReplaceAll, rfIgnoreCase]);
      // REC_REC_PRICE
-     frmMain.SQLQuery1.ParamByName('REC_REC_PRICE').AsString := Win2Utf(XLApp.Cells[x,10].Value);
+     frmMain.SQLQuery1.ParamByName('REC_REC_PRICE').AsString := Win2Utf(XLApp.Cells[x,6].Value);
      // LAUNCH_WEEK
-     frmMain.SQLQuery1.ParamByName('LAUNCH_WEEK').AsString := Win2Utf(XLApp.Cells[x,11].Value);
+     frmMain.SQLQuery1.ParamByName('LAUNCH_WEEK').AsString := Win2Utf(XLApp.Cells[x,7].Value);
      // SIZE_DESCR
-     frmMain.SQLQuery1.ParamByName('SIZE_DESCR').AsString := Win2Utf(XLApp.Cells[x,12].Value);
+     frmMain.SQLQuery1.ParamByName('SIZE_DESCR').AsString := Win2Utf(XLApp.Cells[x,8].Value);
      // EAN_NUMBER
-     frmMain.SQLQuery1.ParamByName('EAN_NUMBER').AsString := Win2Utf(XLApp.Cells[x,13].Value);
+     frmMain.SQLQuery1.ParamByName('EAN_NUMBER').AsString := Win2Utf(XLApp.Cells[x,9].Value);
      // BRAND
-     frmMain.SQLQuery1.ParamByName('BRAND').AsString := Win2Utf(XLApp.Cells[x,14].Value);
+     frmMain.SQLQuery1.ParamByName('BRAND').AsString := Win2Utf(XLApp.Cells[x,10].Value);
      // SIZE_INDEX
-     frmMain.SQLQuery1.ParamByName('SIZE_INDEX').AsString := Win2Utf(XLApp.Cells[x,15].Value);
+     frmMain.SQLQuery1.ParamByName('SIZE_INDEX').AsString := Win2Utf(XLApp.Cells[x,11].Value);
      // DIVISION_ID
-     frmMain.SQLQuery1.ParamByName('DIVISION_ID').AsString := Win2Utf(XLApp.Cells[x,16].Value);
+     frmMain.SQLQuery1.ParamByName('DIVISION_ID').AsString := Win2Utf(XLApp.Cells[x,12].Value);
      // DIVISION_DESCR_L
-     frmMain.SQLQuery1.ParamByName('DIVISION_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,17].Value);
+     frmMain.SQLQuery1.ParamByName('DIVISION_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,13].Value);
      // SPORTS_CODE_ID
-     frmMain.SQLQuery1.ParamByName('SPORTS_CODE_ID').AsString := Win2Utf(XLApp.Cells[x,18].Value);
+     frmMain.SQLQuery1.ParamByName('SPORTS_CODE_ID').AsString := Win2Utf(XLApp.Cells[x,14].Value);
      // SPORTS_CODE_DESCR_L
-     frmMain.SQLQuery1.ParamByName('SPORTS_CODE_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,19].Value);
+     frmMain.SQLQuery1.ParamByName('SPORTS_CODE_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,15].Value);
      // USERCODE
-     frmMain.SQLQuery1.ParamByName('USERCODE').AsString := Win2Utf(XLApp.Cells[x,20].Value);
+     frmMain.SQLQuery1.ParamByName('USERCODE').AsString := Win2Utf(XLApp.Cells[x,18].Value);
      // ARTICLE_DESCR_L
-     frmMain.SQLQuery1.ParamByName('ARTICLE_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,21].Value);
+     frmMain.SQLQuery1.ParamByName('ARTICLE_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,19].Value);
      // COLOUR_COMB_DESCR_L
-     frmMain.SQLQuery1.ParamByName('COLOUR_COMB_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,22].Value);
+     frmMain.SQLQuery1.ParamByName('COLOUR_COMB_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,20].Value);
      // PRODUCT_GROUP_ID
-     frmMain.SQLQuery1.ParamByName('PRODUCT_GROUP_ID').AsString := Win2Utf(XLApp.Cells[x,23].Value);
+     frmMain.SQLQuery1.ParamByName('PRODUCT_GROUP_ID').AsString := Win2Utf(XLApp.Cells[x,21].Value);
      // PRODUCT_GROUP_NAME
-     frmMain.SQLQuery1.ParamByName('PRODUCT_GROUP_NAME').AsString := Win2Utf(XLApp.Cells[x,24].Value);
+     frmMain.SQLQuery1.ParamByName('PRODUCT_GROUP_NAME').AsString := Win2Utf(XLApp.Cells[x,22].Value);
      //PRODUCT_TYPE_ID
-     frmMain.SQLQuery1.ParamByName('PRODUCT_TYPE_ID').AsString := Win2Utf(XLApp.Cells[x,25].Value);
+     frmMain.SQLQuery1.ParamByName('PRODUCT_TYPE_ID').AsString := Win2Utf(XLApp.Cells[x,23].Value);
      // PRODUCT_TYPE_NAME
-     frmMain.SQLQuery1.ParamByName('PRODUCT_TYPE_NAME').AsString := Win2Utf(XLApp.Cells[x,26].Value);
+     frmMain.SQLQuery1.ParamByName('PRODUCT_TYPE_NAME').AsString := Win2Utf(XLApp.Cells[x,24].Value);
      // GENDER
-     frmMain.SQLQuery1.ParamByName('GENDER').AsString := Win2Utf(XLApp.Cells[x,27].Value);
+     frmMain.SQLQuery1.ParamByName('GENDER').AsString := Win2Utf(XLApp.Cells[x,25].Value);
      // AGE
-     frmMain.SQLQuery1.ParamByName('AGE').AsString := Win2Utf(XLApp.Cells[x,28].Value);
+     frmMain.SQLQuery1.ParamByName('AGE').AsString := Win2Utf(XLApp.Cells[x,26].Value);
      // MATERIAL
-     frmMain.SQLQuery1.ParamByName('MATERIAL').AsString := Win2Utf(XLApp.Cells[x,29].Value);
+     frmMain.SQLQuery1.ParamByName('MATERIAL').AsString := Win2Utf(XLApp.Cells[x,27].Value);
      // POST
      frmMain.SQLQuery1.ExecSQL;
      DM.SQLTransaction.Commit;
@@ -360,9 +360,11 @@ var XLApp: OLEVariant;
       x,y: LongInt;
       path: variant;
       xx,yy,cnt: LongInt;
+      comma: string;
 begin
  XLApp := CreateOleObject('Excel.Application'); // comobj
  try
+   comma := '-';
    cnt := 0;
    frmMain.btExecute.Enabled := false;
    frmMain.btFileOpen.Enabled := false;
@@ -392,57 +394,57 @@ begin
      // ARTICLE
      frmMain.SQLQuery1.ParamByName('ARTICLE').AsString := Win2Utf(XLApp.Cells[x,1].Value);
      // MODEL_NUMBER
-     frmMain.SQLQuery1.ParamByName('MODEL_NUMBER').AsString := Win2Utf(XLApp.Cells[x,2].Value);
+     frmMain.SQLQuery1.ParamByName('MODEL_NUMBER').AsString := Win2Utf(XLApp.Cells[x,17].Value);
      // MODEL_NAME
-     frmMain.SQLQuery1.ParamByName('MODEL_NAME').AsString := Win2Utf(XLApp.Cells[x,3].Value);
+     frmMain.SQLQuery1.ParamByName('MODEL_NAME').AsString := Win2Utf(XLApp.Cells[x,2].Value);
      // COLOUR
      frmMain.SQLQuery1.ParamByName('COLOUR').AsString := Win2Utf(XLApp.Cells[x,4].Value);
      // NET_PRICE
-     frmMain.SQLQuery1.ParamByName('NET_PRICE').AsString := StringReplace(StringReplace(Win2Utf(XLApp.Cells[x,5].Value), ' ', '', [rfReplaceAll, rfIgnoreCase]), '.', ',', [rfReplaceAll, rfIgnoreCase]);
+     frmMain.SQLQuery1.ParamByName('NET_PRICE').AsString := StringReplace(StringReplace(Win2Utf(XLApp.Cells[x,9].Value), ' ', '', [rfReplaceAll, rfIgnoreCase]), '.', ',', [rfReplaceAll, rfIgnoreCase]);
      // REC_REC_PRICE
-     frmMain.SQLQuery1.ParamByName('REC_REC_PRICE').AsString := StringReplace(StringReplace(Win2Utf(XLApp.Cells[x,6].Value), ' ', '', [rfReplaceAll, rfIgnoreCase]), '.', ',', [rfReplaceAll, rfIgnoreCase]);
+     frmMain.SQLQuery1.ParamByName('REC_REC_PRICE').AsString := StringReplace(StringReplace(Win2Utf(XLApp.Cells[x,10].Value), ' ', '', [rfReplaceAll, rfIgnoreCase]), '.', ',', [rfReplaceAll, rfIgnoreCase]);
      // LAUNCH_WEEK
-     frmMain.SQLQuery1.ParamByName('LAUNCH_WEEK').AsString := Win2Utf(XLApp.Cells[x,7].Value);
+     //frmMain.SQLQuery1.ParamByName('LAUNCH_WEEK').AsString := Win2Utf(XLApp.Cells[x,7].Value);
      // SIZE_DESCR
-     frmMain.SQLQuery1.ParamByName('SIZE_DESCR').AsString := Win2Utf(XLApp.Cells[x,8].Value);
+     frmMain.SQLQuery1.ParamByName('SIZE_DESCR').AsString := Win2Utf(XLApp.Cells[x,6].Value);
      // EAN_NUMBER
-     frmMain.SQLQuery1.ParamByName('EAN_NUMBER').AsString := Win2Utf(XLApp.Cells[x,9].Value);
+     frmMain.SQLQuery1.ParamByName('EAN_NUMBER').AsString := Win2Utf(XLApp.Cells[x,7].Value);
      // BRAND
-     frmMain.SQLQuery1.ParamByName('BRAND').AsString := Win2Utf(XLApp.Cells[x,10].Value);
+     //frmMain.SQLQuery1.ParamByName('BRAND').AsString := Win2Utf(XLApp.Cells[x,10].Value);
      // SIZE_INDEX
-     frmMain.SQLQuery1.ParamByName('SIZE_INDEX').AsString := Win2Utf(XLApp.Cells[x,11].Value);
+     frmMain.SQLQuery1.ParamByName('SIZE_INDEX').AsString := Win2Utf(XLApp.Cells[x,5].Value);
      // DIVISION_ID
-     frmMain.SQLQuery1.ParamByName('DIVISION_ID').AsString := Win2Utf(XLApp.Cells[x,12].Value);
+     frmMain.SQLQuery1.ParamByName('DIVISION_ID').AsString := Utils.getIdOrName(Win2Utf(XLApp.Cells[x,11].Value), 0, comma);
      // DIVISION_DESCR_L
-     frmMain.SQLQuery1.ParamByName('DIVISION_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,13].Value);
+     frmMain.SQLQuery1.ParamByName('DIVISION_DESCR_L').AsString := Utils.getIdOrName(Win2Utf(XLApp.Cells[x,11].Value), 1, comma);
      // SPORTS_CODE_ID
-     frmMain.SQLQuery1.ParamByName('SPORTS_CODE_ID').AsString := Win2Utf(XLApp.Cells[x,14].Value);
+     frmMain.SQLQuery1.ParamByName('SPORTS_CODE_ID').AsString := Utils.getIdOrName(Win2Utf(XLApp.Cells[x,13].Value), 0, comma);
      // SPORTS_CODE_DESCR_L
-     frmMain.SQLQuery1.ParamByName('SPORTS_CODE_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,15].Value);
+     frmMain.SQLQuery1.ParamByName('SPORTS_CODE_DESCR_L').AsString := Utils.getIdOrName(Win2Utf(XLApp.Cells[x,13].Value), 1, comma);
      // GEND
-     frmMain.SQLQuery1.ParamByName('GEND').AsString := Win2Utf(XLApp.Cells[x,16].Value);
+     //frmMain.SQLQuery1.ParamByName('GEND').AsString := Win2Utf(XLApp.Cells[x,16].Value);
      // GENDER_NAME
-     frmMain.SQLQuery1.ParamByName('GENDER_NAME').AsString := Win2Utf(XLApp.Cells[x,17].Value);
+     frmMain.SQLQuery1.ParamByName('GENDER_NAME').AsString := Utils.getIdOrName(Win2Utf(XLApp.Cells[x,12].Value), 1, comma);
      // USERCODE
-     frmMain.SQLQuery1.ParamByName('USERCODE').AsString := Win2Utf(XLApp.Cells[x,18].Value);
+     //frmMain.SQLQuery1.ParamByName('USERCODE').AsString := Win2Utf(XLApp.Cells[x,18].Value);
      // ARTICLE_DESCR_L
-     frmMain.SQLQuery1.ParamByName('ARTICLE_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,19].Value);
+     frmMain.SQLQuery1.ParamByName('ARTICLE_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,2].Value);
      // COLOUR_COMB_DESCR_L
-     frmMain.SQLQuery1.ParamByName('COLOUR_COMB_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,20].Value);
+     frmMain.SQLQuery1.ParamByName('COLOUR_COMB_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,4].Value);
      // PRODUCT_GROUP_ID
-     frmMain.SQLQuery1.ParamByName('PRODUCT_GROUP_ID').AsString := Win2Utf(XLApp.Cells[x,21].Value);
+     frmMain.SQLQuery1.ParamByName('PRODUCT_GROUP_ID').AsString := Utils.getIdOrName(Win2Utf(XLApp.Cells[x,14].Value), 0, comma);
      // PRODUCT_GROUP_NAME
-     frmMain.SQLQuery1.ParamByName('PRODUCT_GROUP_NAME').AsString := Win2Utf(XLApp.Cells[x,22].Value);
+     frmMain.SQLQuery1.ParamByName('PRODUCT_GROUP_NAME').AsString := Utils.getIdOrName(Win2Utf(XLApp.Cells[x,14].Value), 1, comma);
      //PRODUCT_TYPE_ID
-     frmMain.SQLQuery1.ParamByName('PRODUCT_TYPE_ID').AsString := Win2Utf(XLApp.Cells[x,23].Value);
+     frmMain.SQLQuery1.ParamByName('PRODUCT_TYPE_ID').AsString := Utils.getIdOrName(Win2Utf(XLApp.Cells[x,14].Value), 0, comma);
      // PRODUCT_TYPE_NAME
-     frmMain.SQLQuery1.ParamByName('PRODUCT_TYPE_NAME').AsString := Win2Utf(XLApp.Cells[x,24].Value);
+     frmMain.SQLQuery1.ParamByName('PRODUCT_TYPE_NAME').AsString := Utils.getIdOrName(Win2Utf(XLApp.Cells[x,14].Value), 1, comma);
      // GENDER
-     frmMain.SQLQuery1.ParamByName('GENDER').AsString := Win2Utf(XLApp.Cells[x,25].Value);
+     frmMain.SQLQuery1.ParamByName('GENDER').AsString := Win2Utf(XLApp.Cells[x,12].Value);
      // AGE
-     frmMain.SQLQuery1.ParamByName('AGE').AsString := Win2Utf(XLApp.Cells[x,26].Value);
+     //frmMain.SQLQuery1.ParamByName('AGE').AsString := Win2Utf(XLApp.Cells[x,26].Value);
      // MATERIAL
-     frmMain.SQLQuery1.ParamByName('MATERIAL').AsString := Win2Utf(XLApp.Cells[x,27].Value);
+     frmMain.SQLQuery1.ParamByName('MATERIAL').AsString := Win2Utf(XLApp.Cells[x,3].Value);
      // POST
      frmMain.SQLQuery1.ExecSQL;
      DM.SQLTransaction.Commit;

@@ -1,43 +1,43 @@
 object frmMain: TfrmMain
   Left = 451
-  Height = 222
+  Height = 358
   Top = 210
-  Width = 620
+  Width = 788
   Caption = 'Store4 - Utils'
-  ClientHeight = 202
-  ClientWidth = 620
+  ClientHeight = 333
+  ClientWidth = 788
   Constraints.MinHeight = 200
   Constraints.MinWidth = 620
   Menu = MainMenu
   Position = poDesktopCenter
-  LCLVersion = '1.0.10.0'
+  LCLVersion = '1.4.4.0'
   object StatusBar1: TStatusBar
     Left = 0
-    Height = 23
-    Top = 179
-    Width = 620
+    Height = 24
+    Top = 309
+    Width = 788
     Panels = <>
   end
   object pImport: TPanel
     Left = 0
-    Height = 161
+    Height = 291
     Top = 18
-    Width = 620
+    Width = 788
     Align = alClient
     BevelOuter = bvSpace
-    ClientHeight = 161
-    ClientWidth = 620
+    ClientHeight = 291
+    ClientWidth = 788
     TabOrder = 1
     OnClick = pImportClick
     object GroupBox1: TGroupBox
       Left = 1
-      Height = 159
+      Height = 289
       Top = 1
-      Width = 618
+      Width = 786
       Align = alClient
       Caption = 'Import'
-      ClientHeight = 141
-      ClientWidth = 614
+      ClientHeight = 264
+      ClientWidth = 782
       TabOrder = 0
       OnClick = GroupBox1Click
       object btFileOpen: TButton
@@ -51,17 +51,17 @@ object frmMain: TfrmMain
       end
       object edFile: TEdit
         Left = 88
-        Height = 23
+        Height = 28
         Top = 31
-        Width = 520
+        Width = 688
         Anchors = [akTop, akLeft, akRight]
         TabOrder = 1
       end
       object Label1: TLabel
         Left = 88
-        Height = 16
+        Height = 20
         Top = 59
-        Width = 42
+        Width = 50
         Caption = 'průběh:'
         ParentColor = False
       end
@@ -69,32 +69,32 @@ object frmMain: TfrmMain
         Left = 88
         Height = 12
         Top = 76
-        Width = 520
+        Width = 688
         Anchors = [akTop, akLeft, akRight]
         Step = 1
         TabOrder = 2
       end
       object Label2: TLabel
         Left = 10
-        Height = 16
+        Height = 20
         Top = 126
-        Width = 75
+        Width = 91
         Caption = 'celkem řádků:'
         ParentColor = False
       end
       object Label3: TLabel
         Left = 160
-        Height = 16
+        Height = 20
         Top = 126
-        Width = 86
+        Width = 105
         Caption = 'naimportováno:'
         ParentColor = False
       end
       object Label4: TLabel
         Left = 484
-        Height = 16
+        Height = 20
         Top = 126
-        Width = 61
+        Width = 73
         Caption = 'odmítnuto:'
         ParentColor = False
       end
@@ -137,19 +137,19 @@ object frmMain: TfrmMain
       end
       object Label8: TLabel
         Left = 10
-        Height = 16
+        Height = 20
         Top = 7
-        Width = 70
+        Width = 83
         Caption = 'Typ importu:'
         ParentColor = False
       end
       object cbTypeImport: TComboBox
         Left = 89
-        Height = 23
+        Height = 28
         Top = 0
-        Width = 520
+        Width = 688
         Anchors = [akTop, akLeft, akRight]
-        ItemHeight = 15
+        ItemHeight = 20
         Items.Strings = (
           'import ADIDAS - excel, založení nových karet produktů'
           'import Reebok - excel, založení nových karet produktů'
@@ -180,16 +180,16 @@ object frmMain: TfrmMain
         Left = 89
         Height = 12
         Top = 104
-        Width = 519
+        Width = 687
         Anchors = [akTop, akLeft, akRight]
         Step = 1
         TabOrder = 6
       end
       object Label5: TLabel
         Left = 309
-        Height = 16
+        Height = 20
         Top = 126
-        Width = 102
+        Width = 127
         Caption = 'založeno produktů:'
         ParentColor = False
       end
@@ -204,9 +204,9 @@ object frmMain: TfrmMain
       end
       object Label6: TLabel
         Left = 90
-        Height = 16
+        Height = 20
         Top = 91
-        Width = 408
+        Width = 519
         Caption = 'založení je pouze pro type index 0 a 1, ostatni se dělá ručně puštěním fce v DB'
         ParentColor = False
       end
@@ -216,17 +216,17 @@ object frmMain: TfrmMain
     Left = 0
     Height = 18
     Top = 0
-    Width = 620
+    Width = 788
     Align = alTop
     BevelOuter = bvSpace
     ClientHeight = 18
-    ClientWidth = 620
+    ClientWidth = 788
     TabOrder = 2
     object Label9: TLabel
       Left = 24
-      Height = 16
+      Height = 20
       Top = 0
-      Width = 107
+      Width = 134
       Caption = 'přihlášený uživatel:'
       Font.Style = [fsBold]
       ParentColor = False
@@ -268,22 +268,8 @@ object frmMain: TfrmMain
     FieldDefs = <>
     Database = DM.OracleConnection
     Transaction = DM.SQLTransaction
-    SQL.Strings = (
-      'begin import_produktu_nike(:text); end;'
-    )
-    InsertSQL.Strings = (
-      'insert into store4_import_produkty_nike'
-      '(ARTICLE, MODEL_NUMBER, MODEL_NAME, COLOUR, NET_PRICE, REC_REC_PRICE, LAUNCH_WEEK, SIZE_DESCR, EAN_NUMBER, BRAND, SIZE_INDEX, DIVISION_ID, DIVISION_DESCR_L, SPORTS_CODE_ID, SPORTS_CODE_DESCR_L, GEND, GENDER_NAME, USERCODE, ARTICLE_DESCR_L, COLOUR_COMB_DESCR_L, PRODUCT_GROUP_ID, PRODUCT_GROUP_NAME, PRODUCT_TYPE_ID, PRODUCT_TYPE_NAME, GENDER, AGE, MATERIAL)'
-      'values'
-      '(:ARTICLE, :MODEL_NUMBER, :MODEL_NAME, :COLOUR, :NET_PRICE, :REC_REC_PRICE, :LAUNCH_WEEK, :SIZE_DESCR, :EAN_NUMBER, :BRAND, :SIZE_INDEX, :DIVISION_ID, :DIVISION_DESCR_L, :SPORTS_CODE_ID, :SPORTS_CODE_DESCR_L, :GEND, :GENDER_NAME, :USERCODE, :ARTICLE_DESCR_L, :COLOUR_COMB_DESCR_L, :PRODUCT_GROUP_ID, :PRODUCT_GROUP_NAME, :PRODUCT_TYPE_ID, :PRODUCT_TYPE_NAME, :GENDER, :AGE, :MATERIAL)'
-    )
-    Params = <    
-      item
-        DataType = ftUnknown
-        Name = 'text'
-        ParamType = ptInput
-      end>
-    left = 485
-    top = 2
+    Params = <>
+    left = 522
+    top = 8
   end
 end

@@ -52,6 +52,7 @@ function najdi_ke_zpracovani(astr: string): string;
 function replace(str: string; find: string; new: string): string;
 function neprelozitelne_objekty: boolean;
 function getDateFormat(str: string): string;
+function getIdOrName(str: string; typeOper: integer; comma: string): string;
 
 var
   _savebookmark: TBookmarkStr;
@@ -255,7 +256,7 @@ begin
     _Query := TSQLQuery.Create(nil);
     _Query.Database := DM.OracleConnection;
     _Query.ReadOnly := False;
-    _Query.Transaction:=DM.SQLTransaction;
+    //_Query.Transaction:=DM.SQLTransaction;
     _Query.SQL.Text := _sql;
     _Query.ExecSQL;
 
@@ -283,7 +284,7 @@ begin
     _Query := TSQLQuery.Create(nil);
     _Query.Database := DM.OracleConnection;
     _Query.ReadOnly := False;
-    _Query.Transaction:=DM.SQLTransaction;
+    //_Query.Transaction:=DM.SQLTransaction;
     _Query.SQL.Text := _SQL;
     _Query.Open;
     _ComboBox.Items.Clear;
@@ -314,7 +315,7 @@ begin
     _Query := TSQLQuery.Create(nil);
     _Query.Database := DM.OracleConnection;
     _Query.ReadOnly := False;
-    _Query.Transaction:=DM.SQLTransaction;
+//    _Query.Transaction:=DM.SQLTransaction;
     _Query.SQL.Text := _SQL;
     _Query.Open;
     _ComboBox.Items.Clear;
@@ -346,7 +347,7 @@ begin
     _Query := TSQLQuery.Create(nil);
     _Query.Database := DM.OracleConnection;
     _Query.ReadOnly := False;
-    _Query.Transaction:=DM.SQLTransaction;
+//    _Query.Transaction:=DM.SQLTransaction;
     _c     := _SQL + '''' + _text + '''';
     _Query.SQL.Text := _c;
     _Query.Open;
@@ -375,7 +376,7 @@ begin
     _Query := TSQLQuery.Create(nil);
     _Query.Database := DM.OracleConnection;
     _Query.ReadOnly := False;
-    _Query.Transaction:=DM.SQLTransaction;
+//    _Query.Transaction:=DM.SQLTransaction;
     _c     := _SQL + _text;
     _Query.SQL.Text := _c;
     if _text <> '' then
@@ -408,7 +409,7 @@ begin
     _Query := TSQLQuery.Create(nil);
     _Query.Database := DM.OracleConnection;
     _Query.ReadOnly := False;
-    _Query.Transaction:=DM.SQLTransaction;
+//    _Query.Transaction:=DM.SQLTransaction;
     _c     := 'SELECT KOD FROM LICENCE';
     _Query.SQL.Text := _c;
     _Query.Open;
@@ -1054,6 +1055,26 @@ begin
     end;
   except
     tmp := str;
+  end;
+  Result := tmp;
+end;
+
+function getIdOrName(str: string; typeOper: integer; comma: string): string;
+var
+  tmp, del: string;
+  pos: integer;
+begin
+  try
+    pos := AnsiPos(comma, str);
+    if pos > 0 then
+    begin
+      if typeOper = 0 then
+        tmp := Copy(str, 1, pos - 1)
+      else
+        tmp := Copy(str, pos + 1, Length(str) - Length(Copy(str, 1, pos)));
+    end;
+  except
+    tmp := '';
   end;
   Result := tmp;
 end;

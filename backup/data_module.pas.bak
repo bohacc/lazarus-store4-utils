@@ -12,7 +12,6 @@ type
   { TDM }
 
   TDM = class(TDataModule)
-    OracleConnection: TOracleConnection;
     SQLTransaction: TSQLTransaction;
     procedure DataModuleCreate(Sender: TObject);
     procedure OracleConnectionAfterConnect(Sender: TObject);

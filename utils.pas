@@ -1061,7 +1061,8 @@ end;
 
 function getIdOrName(str: string; typeOper: integer; comma: string): string;
 var
-  tmp, pos, del: string;
+  tmp, del: string;
+  pos: integer;
 begin
   try
     pos := AnsiPos(comma, str);
@@ -1070,7 +1071,7 @@ begin
       if typeOper = 0 then
         tmp := Copy(str, 1, pos - 1)
       else
-        tmp := Copy(str, pos + 1, Length(str) - Copy(str, 1, pos));
+        tmp := Copy(str, pos + 1, Length(str) - Length(Copy(str, 1, pos)));
     end;
   except
     tmp := '';

@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <CONFIG>
   <ProjectOptions>
     <Version Value="9"/>
@@ -50,7 +50,6 @@
         <ComponentName Value="frmMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="fmain"/>
       </Unit1>
       <Unit2>
         <Filename Value="dabout.pas"/>
@@ -58,7 +57,6 @@
         <ComponentName Value="frmAbout"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="dabout"/>
       </Unit2>
       <Unit3>
         <Filename Value="flogin.pas"/>
@@ -66,7 +64,6 @@
         <ComponentName Value="frmLogin"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <UnitName Value="flogin"/>
       </Unit3>
       <Unit4>
         <Filename Value="data_module.pas"/>
@@ -89,7 +86,6 @@
       <Unit7>
         <Filename Value="cestina.pas"/>
         <IsPartOfProject Value="True"/>
-        <UnitName Value="cestina"/>
       </Unit7>
     </Units>
   </ProjectOptions>
@@ -110,9 +106,6 @@
         </Win32>
       </Options>
     </Linking>
-    <Other>
-      <CompilerPath Value="$(CompPath)"/>
-    </Other>
   </CompilerOptions>
   <Debugging>
     <Exceptions Count="3">

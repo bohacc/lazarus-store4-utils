@@ -1,5 +1,3 @@
-{ This is an automatically generated lazarus resource file }
-
 LazarusResources.Add('TfrmLogin','FORMDATA',[
   'TPF0'#9'TfrmLogin'#8'frmLogin'#4'Left'#3't'#1#6'Height'#3#140#0#3'Top'#3#204
   +#0#5'Width'#3'f'#1#11'BorderIcons'#11#0#11'BorderStyle'#7#6'bsNone'#7'Captio'

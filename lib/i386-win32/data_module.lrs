@@ -3,9 +3,10 @@
 LazarusResources.Add('TDM','FORMDATA',[
   'TPF0'#3'TDM'#2'DM'#8'OnCreate'#7#16'DataModuleCreate'#14'OldCreateOrder'#8#6
   +'Height'#3#147#0#16'HorizontalOffset'#3#250#1#14'VerticalOffset'#3#202#0#5'W'
-  +'idth'#3#230#0#0#17'TOracleConnection'#16'OracleConnection'#9'Connected'#8#11
-  +'LoginPrompt'#8#14'KeepConnection'#8#11'Transaction'#7#14'SQLTransaction'#9
+  +'idth'#3#230#0#0#17'TOracleConnection'#16'OracleConnection'#9'Connected'#9#11
+  +'LoginPrompt'#8#12'DatabaseName'#6#5'MANU4'#14'KeepConnection'#8#8'Password'
+  +#6#8'jim4free'#11'Transaction'#7#14'SQLTransaction'#8'UserName'#6#6'STORE4'#9
   +'LogEvents'#11#0#4'left'#2'.'#3'top'#2'('#0#0#15'TSQLTransaction'#14'SQLTran'
-  +'saction'#6'Active'#8#8'Database'#7#16'OracleConnection'#4'left'#3#152#0#3't'
+  +'saction'#6'Active'#9#8'Database'#7#16'OracleConnection'#4'left'#3#152#0#3't'
   +'op'#2''''#0#0#0
 ]);
