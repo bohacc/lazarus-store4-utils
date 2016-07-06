@@ -71,7 +71,7 @@ var
 
 implementation
 
-uses dabout, ComObj, cestina, Data_module;
+uses dabout, ComObj, cestina, Data_module, Utils;
 
 {$R *.lfm}
 
@@ -360,9 +360,11 @@ var XLApp: OLEVariant;
       x,y: LongInt;
       path: variant;
       xx,yy,cnt: LongInt;
+      comma: string;
 begin
  XLApp := CreateOleObject('Excel.Application'); // comobj
  try
+   comma := '-';
    cnt := 0;
    frmMain.btExecute.Enabled := false;
    frmMain.btFileOpen.Enabled := false;
@@ -412,17 +414,17 @@ begin
      // SIZE_INDEX
      frmMain.SQLQuery1.ParamByName('SIZE_INDEX').AsString := Win2Utf(XLApp.Cells[x,5].Value);
      // DIVISION_ID
-     //frmMain.SQLQuery1.ParamByName('DIVISION_ID').AsString := Win2Utf(XLApp.Cells[x,12].Value);
+     frmMain.SQLQuery1.ParamByName('DIVISION_ID').AsString := Utils.getIdOrName(Win2Utf(XLApp.Cells[x,11].Value), 0, comma);
      // DIVISION_DESCR_L
-     frmMain.SQLQuery1.ParamByName('DIVISION_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,11].Value);
+     frmMain.SQLQuery1.ParamByName('DIVISION_DESCR_L').AsString := Utils.getIdOrName(Win2Utf(XLApp.Cells[x,11].Value), 1, comma);
      // SPORTS_CODE_ID
-     //frmMain.SQLQuery1.ParamByName('SPORTS_CODE_ID').AsString := Win2Utf(XLApp.Cells[x,14].Value);
+     frmMain.SQLQuery1.ParamByName('SPORTS_CODE_ID').AsString := Utils.getIdOrName(Win2Utf(XLApp.Cells[x,13].Value), 0, comma);
      // SPORTS_CODE_DESCR_L
-     frmMain.SQLQuery1.ParamByName('SPORTS_CODE_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,13].Value);
+     frmMain.SQLQuery1.ParamByName('SPORTS_CODE_DESCR_L').AsString := Utils.getIdOrName(Win2Utf(XLApp.Cells[x,13].Value), 1, comma);
      // GEND
      //frmMain.SQLQuery1.ParamByName('GEND').AsString := Win2Utf(XLApp.Cells[x,16].Value);
      // GENDER_NAME
-     frmMain.SQLQuery1.ParamByName('GENDER_NAME').AsString := Win2Utf(XLApp.Cells[x,12].Value);
+     frmMain.SQLQuery1.ParamByName('GENDER_NAME').AsString := Utils.getIdOrName(Win2Utf(XLApp.Cells[x,12].Value), 1, comma);
      // USERCODE
      //frmMain.SQLQuery1.ParamByName('USERCODE').AsString := Win2Utf(XLApp.Cells[x,18].Value);
      // ARTICLE_DESCR_L
@@ -430,13 +432,13 @@ begin
      // COLOUR_COMB_DESCR_L
      frmMain.SQLQuery1.ParamByName('COLOUR_COMB_DESCR_L').AsString := Win2Utf(XLApp.Cells[x,4].Value);
      // PRODUCT_GROUP_ID
-     //frmMain.SQLQuery1.ParamByName('PRODUCT_GROUP_ID').AsString := Win2Utf(XLApp.Cells[x,21].Value);
+     frmMain.SQLQuery1.ParamByName('PRODUCT_GROUP_ID').AsString := Utils.getIdOrName(Win2Utf(XLApp.Cells[x,14].Value), 0, comma);
      // PRODUCT_GROUP_NAME
-     frmMain.SQLQuery1.ParamByName('PRODUCT_GROUP_NAME').AsString := Win2Utf(XLApp.Cells[x,14].Value);
+     frmMain.SQLQuery1.ParamByName('PRODUCT_GROUP_NAME').AsString := Utils.getIdOrName(Win2Utf(XLApp.Cells[x,14].Value), 1, comma);
      //PRODUCT_TYPE_ID
-     //frmMain.SQLQuery1.ParamByName('PRODUCT_TYPE_ID').AsString := Win2Utf(XLApp.Cells[x,23].Value);
+     frmMain.SQLQuery1.ParamByName('PRODUCT_TYPE_ID').AsString := Utils.getIdOrName(Win2Utf(XLApp.Cells[x,14].Value), 0, comma);
      // PRODUCT_TYPE_NAME
-     frmMain.SQLQuery1.ParamByName('PRODUCT_TYPE_NAME').AsString := Win2Utf(XLApp.Cells[x,14].Value);
+     frmMain.SQLQuery1.ParamByName('PRODUCT_TYPE_NAME').AsString := Utils.getIdOrName(Win2Utf(XLApp.Cells[x,14].Value), 1, comma);
      // GENDER
      frmMain.SQLQuery1.ParamByName('GENDER').AsString := Win2Utf(XLApp.Cells[x,12].Value);
      // AGE
