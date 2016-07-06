@@ -71,7 +71,7 @@ var
 
 implementation
 
-uses dabout, ComObj, cestina, Data_module;
+uses dabout, ComObj, cestina, Data_module, Utils;
 
 {$R *.lfm}
 

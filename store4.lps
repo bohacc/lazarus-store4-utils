@@ -8,10 +8,9 @@
       <Unit0>
         <Filename Value="store4.lpr"/>
         <IsPartOfProject Value="True"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="7"/>
-        <CursorPos X="48" Y="20"/>
-        <UsageCount Value="70"/>
+        <CursorPos X="38" Y="2"/>
+        <UsageCount Value="73"/>
         <Loaded Value="True"/>
       </Unit0>
       <Unit1>
@@ -21,9 +20,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="6"/>
-        <TopLine Value="139"/>
-        <CursorPos X="31" Y="139"/>
-        <UsageCount Value="70"/>
+        <TopLine Value="411"/>
+        <CursorPos X="68" Y="417"/>
+        <UsageCount Value="73"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit1>
@@ -36,7 +35,7 @@
         <EditorIndex Value="4"/>
         <TopLine Value="20"/>
         <CursorPos X="35" Y="29"/>
-        <UsageCount Value="70"/>
+        <UsageCount Value="73"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit2>
@@ -47,9 +46,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="16"/>
+        <TopLine Value="2"/>
         <CursorPos X="61" Y="32"/>
-        <UsageCount Value="70"/>
+        <UsageCount Value="73"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit3>
@@ -61,8 +60,8 @@
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="Data_module"/>
         <EditorIndex Value="5"/>
-        <CursorPos X="31" Y="15"/>
-        <UsageCount Value="69"/>
+        <CursorPos X="76" Y="19"/>
+        <UsageCount Value="72"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit4>
@@ -70,10 +69,11 @@
         <Filename Value="utils.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Utils"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="258"/>
-        <CursorPos X="25" Y="286"/>
-        <UsageCount Value="69"/>
+        <TopLine Value="220"/>
+        <CursorPos X="27" Y="231"/>
+        <UsageCount Value="72"/>
         <Loaded Value="True"/>
       </Unit5>
       <Unit6>
@@ -82,7 +82,7 @@
         <UnitName Value="uConsts"/>
         <EditorIndex Value="3"/>
         <CursorPos X="22" Y="9"/>
-        <UsageCount Value="69"/>
+        <UsageCount Value="72"/>
         <Loaded Value="True"/>
       </Unit6>
       <Unit7>
@@ -90,11 +90,11 @@
         <IsPartOfProject Value="True"/>
         <TopLine Value="8"/>
         <CursorPos X="44" Y="22"/>
-        <UsageCount Value="57"/>
+        <UsageCount Value="60"/>
         <Loaded Value="True"/>
       </Unit7>
     </Units>
-    <JumpHistory Count="27" HistoryIndex="26">
+    <JumpHistory Count="28" HistoryIndex="27">
       <Position1>
         <Filename Value="fmain.pas"/>
         <Caret Line="127" Column="41" TopLine="120"/>
@@ -203,6 +203,10 @@
         <Filename Value="store4.lpr"/>
         <Caret Line="14" Column="42"/>
       </Position27>
+      <Position28>
+        <Filename Value="utils.pas"/>
+        <Caret Line="49" Column="72" TopLine="30"/>
+      </Position28>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>
