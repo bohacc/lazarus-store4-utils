@@ -8,9 +8,11 @@
       <Unit0>
         <Filename Value="store4.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="-1"/>
-        <CursorPos X="38" Y="2"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <CursorPos X="69" Y="10"/>
         <UsageCount Value="73"/>
+        <Loaded Value="True"/>
       </Unit0>
       <Unit1>
         <Filename Value="fmain.pas"/>
@@ -18,10 +20,10 @@
         <ComponentName Value="frmMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="411"/>
-        <CursorPos X="55" Y="428"/>
+        <TopLine Value="401"/>
+        <CursorPos X="82" Y="443"/>
         <UsageCount Value="73"/>
+        <Loaded Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="dabout.pas"/>
@@ -52,8 +54,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="Data_module"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
         <CursorPos X="77" Y="8"/>
         <UsageCount Value="72"/>
       </Unit4>
@@ -91,9 +93,11 @@
         <UsageCount Value="10"/>
       </Unit8>
     </Units>
-    <General>
-      <ActiveWindowIndexAtStart Value="-1"/>
-    </General>
-    <JumpHistory HistoryIndex="-1"/>
+    <JumpHistory Count="1">
+      <Position1>
+        <Filename Value="store4.lpr"/>
+        <Caret Line="2" Column="38"/>
+      </Position1>
+    </JumpHistory>
   </ProjectSession>
 </CONFIG>

@@ -18,10 +18,11 @@
         <ComponentName Value="frmMain"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <EditorIndex Value="-1"/>
-        <TopLine Value="411"/>
-        <CursorPos X="55" Y="428"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="401"/>
+        <CursorPos X="82" Y="443"/>
         <UsageCount Value="73"/>
+        <Loaded Value="True"/>
       </Unit1>
       <Unit2>
         <Filename Value="dabout.pas"/>
@@ -52,10 +53,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="Data_module"/>
-        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
         <CursorPos X="77" Y="8"/>
         <UsageCount Value="72"/>
-        <Loaded Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="utils.pas"/>
@@ -91,11 +92,6 @@
         <UsageCount Value="10"/>
       </Unit8>
     </Units>
-    <JumpHistory Count="1">
-      <Position1>
-        <Filename Value="data_module.pas"/>
-        <Caret Line="14" Column="45"/>
-      </Position1>
-    </JumpHistory>
+    <JumpHistory HistoryIndex="-1"/>
   </ProjectSession>
 </CONFIG>
