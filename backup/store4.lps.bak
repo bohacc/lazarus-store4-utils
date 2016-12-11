@@ -4,7 +4,7 @@
     <PathDelim Value="\"/>
     <Version Value="9"/>
     <BuildModes Active="Default"/>
-    <Units Count="8">
+    <Units Count="9">
       <Unit0>
         <Filename Value="store4.lpr"/>
         <IsPartOfProject Value="True"/>
@@ -19,7 +19,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
-        <WindowIndex Value="-1"/>
         <TopLine Value="411"/>
         <CursorPos X="55" Y="428"/>
         <UsageCount Value="73"/>
@@ -43,7 +42,7 @@
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="2"/>
-        <CursorPos X="61" Y="32"/>
+        <CursorPos X="7" Y="12"/>
         <UsageCount Value="73"/>
       </Unit3>
       <Unit4>
@@ -54,20 +53,19 @@
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="Data_module"/>
         <IsVisibleTab Value="True"/>
-        <CursorPos X="27" Y="9"/>
+        <CursorPos X="77" Y="8"/>
         <UsageCount Value="72"/>
         <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit4>
       <Unit5>
         <Filename Value="utils.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Utils"/>
-        <EditorIndex Value="1"/>
-        <TopLine Value="242"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="241"/>
         <CursorPos X="44" Y="257"/>
         <UsageCount Value="72"/>
-        <Loaded Value="True"/>
       </Unit5>
       <Unit6>
         <Filename Value="uconsts.pas"/>
@@ -85,28 +83,19 @@
         <CursorPos X="44" Y="22"/>
         <UsageCount Value="60"/>
       </Unit7>
+      <Unit8>
+        <Filename Value="C:\lazarus\fpc\3.0.0\source\rtl\inc\objpash.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="66"/>
+        <CursorPos X="47" Y="193"/>
+        <UsageCount Value="10"/>
+      </Unit8>
     </Units>
-    <JumpHistory Count="5" HistoryIndex="4">
+    <JumpHistory Count="1">
       <Position1>
-        <Filename Value="utils.pas"/>
-        <Caret Line="308" Column="43" TopLine="301"/>
-      </Position1>
-      <Position2>
-        <Filename Value="utils.pas"/>
-        <Caret Line="225" Column="51" TopLine="216"/>
-      </Position2>
-      <Position3>
-        <Filename Value="utils.pas"/>
-        <Caret Line="62" Column="27" TopLine="42"/>
-      </Position3>
-      <Position4>
-        <Filename Value="utils.pas"/>
-        <Caret Line="257" Column="27" TopLine="242"/>
-      </Position4>
-      <Position5>
         <Filename Value="data_module.pas"/>
-        <Caret Line="9" Column="27"/>
-      </Position5>
+        <Caret Line="14" Column="45"/>
+      </Position1>
     </JumpHistory>
   </ProjectSession>
 </CONFIG>
